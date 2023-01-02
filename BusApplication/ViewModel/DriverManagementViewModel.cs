@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,10 @@ namespace BusApplication.ViewModel
 {
     public partial class DriverManagementViewModel : ObservableObject
     {
+
+        public ObservableCollection<DriverCollectionView> DriversCollectionViewItems { get; set; }
+
+        
         [RelayCommand]
         void Add()
         {
@@ -36,5 +41,27 @@ namespace BusApplication.ViewModel
             List<Driver> drivers = App.DriverRepo.GetAllDrivers();
             drivers.ForEach(driver => { Debug.WriteLine(driver.Name); });
         }
+
+        public List<Driver> GetDrivers() { 
+            return App.DriverRepo.GetAllDrivers();
+        }
+
+        public void SetDriverCollectionView()
+        {
+            List<Driver> drivers = GetDrivers();
+            List<DriverCollectionView> driverCollection = new List<DriverCollectionView>();
+            drivers.ForEach(driver =>
+            {
+                string driverName = driver.Name;
+                int driverBus = driver.BusNumber;
+                DriversCollectionViewItems.Add(new DriverCollectionView { Name = driverName, BusNumber = driverBus });
+            });
+        }
+    }
+
+    public class DriverCollectionView
+    {
+        public string Name { get; set; }
+        public int BusNumber { get; set; }
     }
 }

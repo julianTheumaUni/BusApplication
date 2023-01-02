@@ -4,8 +4,10 @@ public partial class AppShell : Shell
 {
 	public AppShell()
 	{
-		InitializeComponent();
+		
+		Routing.RegisterRoute("./Pages/DriverManagementPage", typeof(DriverManagementPage));
+		Routing.RegisterRoute(nameof(FindBusPage), typeof(FindBusPage));
+        InitializeComponent();
 
-		Routing.RegisterRoute(nameof(DriverManagementPage), typeof(DriverManagementPage));
-	}
+    }
 }

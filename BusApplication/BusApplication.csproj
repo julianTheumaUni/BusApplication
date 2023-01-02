@@ -56,10 +56,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="DriverManagementPage.xaml">
+	  <MauiXaml Update="Pages\DriverManagementPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="FindBusPage.xaml">
+	  <MauiXaml Update="Pages\FindBusPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

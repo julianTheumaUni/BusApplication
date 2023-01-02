@@ -15,6 +15,7 @@ namespace BusApplication.Models
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
+        public int BusNumber { get; set; } //is driving bus of id BusNumber
     }
 
     

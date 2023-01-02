@@ -9,4 +9,10 @@ public partial class DriverManagementPage : ContentPage
 		InitializeComponent();
 		BindingContext= vm;
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+		BindingContext
+    }
 }

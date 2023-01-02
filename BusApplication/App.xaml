@@ -8,8 +8,23 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
-
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
+
+    <Application.MainPage>
+        <Shell>
+            <TabBar x:Name="PhoneTabs">
+                <Tab Title="Home">
+                    <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+                </Tab>
+                <Tab Title="Home2">
+                    <ShellContent ContentTemplate="{DataTemplate local:FindBusPage}"/>
+                </Tab>
+                <Tab Title="Home3">
+                    <ShellContent ContentTemplate="{DataTemplate local:FindBusPage}"/>
+                </Tab>
+            </TabBar>
+        </Shell>
+    </Application.MainPage>
 </Application>
