@@ -13,6 +13,6 @@ public partial class DriverManagementPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-		BindingContext
+		
     }
 }
