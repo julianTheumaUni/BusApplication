@@ -1,6 +1,5 @@
 ﻿using BusApplication.Repositories;
 using BusApplication.ViewModel;
-using ViewModel;
 
 namespace BusApplication;
 
