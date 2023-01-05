@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BusApplication.DriverManagementPage"
+             Title="DriverManagementPage"
+             xmlns:viewmodel="clr-namespace:BusApplication.ViewModel"
+             x:DataType="viewmodel:DriverManagementViewModel">
+    <VerticalStackLayout>
+        <Label 
+            Text="Drivers"
+            TextColor="Blue"
+            FontSize="40"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <CollectionView x:Name="DriversCollectionView" ItemsSource="{Binding DriversCollectionViewItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Padding="10">
+                        <Image Source="" HeightRequest="100" WidthRequest="100" Aspect="AspectFill"/>
+                        <VerticalStackLayout Padding="10" Spacing="4" VerticalOptions="Center">
+                            <Label Text="" />
+                            <Label Text="" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Add" Margin ="10,100,10,10" BorderColor ="Blue" Command="{Binding AddCommand}"/>
+        <Button Text="View" Margin ="10,40,10,10" BorderColor ="Blue" Command="{Binding GetAllDriversCommand}"/>
+        <Button Text="Update" Margin ="10,40,10,10" BorderColor ="Blue" />
+        <!--Command="{Binding UpdateCommand}"/> -->
+        <Button Text="Delete" Margin ="10,40,10,10" BorderColor ="Blue"/> <!--Command="{Binding DeleteCommand}"/> -->
+
+    </VerticalStackLayout>
+</ContentPage>
