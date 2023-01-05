@@ -36,5 +36,15 @@ namespace BusApplication.ViewModel
         {
             await Shell.Current.GoToAsync(nameof(FindBusPage));
         }
+        [RelayCommand]
+        async Task NavigateToUserManagement()
+        {
+            await Shell.Current.GoToAsync(nameof(Pages.UserManagementPage));
+        }
+        [RelayCommand]
+        async Task NavigateToFleetManagement()
+        {
+            await Shell.Current.GoToAsync(nameof(Pages.FleetManagementPage));
+        }
     }
 }

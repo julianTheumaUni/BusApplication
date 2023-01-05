@@ -29,7 +29,14 @@ public static class MauiProgram
 		builder.Services.AddSingleton<FindBusViewModel>();
 
 		builder.Services.AddSingleton<RouteDetailsPage>();
-		/*
+
+        builder.Services.AddTransient<UserManagementPage>();
+        builder.Services.AddTransient<UserManagementViewModel>();
+
+        builder.Services.AddTransient<FleetManagementPage>();
+        builder.Services.AddTransient<FleetManagementViewModel>();
+
+        /*
 		 *Transient is created and destroyed each time, useful for dynamic content
 		 *Singleton is created once and not destroyed
 		 */
