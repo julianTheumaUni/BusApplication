@@ -15,10 +15,10 @@
     <Application.MainPage>
         <Shell>
             <TabBar x:Name="PhoneTabs">
-                <Tab Title="Home">
+                <Tab Title="Home" Icon="home_icon">
                     <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
                 </Tab>
-                <Tab Title="Home2">
+                <Tab Title="Find a Bus" Icon="bus_icon">
                     <ShellContent ContentTemplate="{DataTemplate local:FindBusPage}"/>
                 </Tab>
                 <Tab Title="Home3">

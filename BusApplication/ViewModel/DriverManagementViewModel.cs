@@ -16,7 +16,7 @@ namespace BusApplication.ViewModel
 
         public ObservableCollection<DriverCollectionView> DriversCollectionViewItems { get; set; }
 
-        
+
         [RelayCommand]
         void Add()
         {
@@ -42,7 +42,8 @@ namespace BusApplication.ViewModel
             drivers.ForEach(driver => { Debug.WriteLine(driver.Name); });
         }
 
-        public List<Driver> GetDrivers() { 
+        public List<Driver> GetDrivers()
+        {
             return App.DriverRepo.GetAllDrivers();
         }
 
@@ -58,6 +59,16 @@ namespace BusApplication.ViewModel
             });
         }
     }
+    //[RelayCommand]
+    //void Update()
+    // {
+
+    //   }
+    //  [RelayCommand]
+    // void Delete()
+    // {
+
+    //   }
 
     public class DriverCollectionView
     {

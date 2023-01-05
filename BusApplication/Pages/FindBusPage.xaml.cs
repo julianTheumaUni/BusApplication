@@ -1,9 +1,12 @@
+using BusApplication.ViewModel;
+
 namespace BusApplication;
 
 public partial class FindBusPage : ContentPage
 {
-	public FindBusPage()
+	public FindBusPage(FindBusViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
 }

@@ -1,4 +1,6 @@
-﻿namespace BusApplication;
+﻿using Pages;
+
+namespace BusApplication;
 
 public partial class AppShell : Shell
 {
@@ -7,6 +9,7 @@ public partial class AppShell : Shell
 		
 		Routing.RegisterRoute("./Pages/DriverManagementPage", typeof(DriverManagementPage));
 		Routing.RegisterRoute(nameof(FindBusPage), typeof(FindBusPage));
+		Routing.RegisterRoute(nameof(RouteDetailsPage), typeof(RouteDetailsPage));
         InitializeComponent();
 
     }

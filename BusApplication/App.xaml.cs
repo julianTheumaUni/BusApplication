@@ -1,4 +1,5 @@
 ﻿using BusApplication.Repositories;
+using Pages;
 using System.Diagnostics.Contracts;
 using System.Windows;
 
@@ -14,7 +15,9 @@ public partial class App : Application
 		Tab1Text = "Admin";
 		Routing.RegisterRoute(nameof(DriverManagementPage), typeof(DriverManagementPage));
 		Routing.RegisterRoute(nameof(FindBusPage), typeof(FindBusPage));
-		InitializeComponent();
+        Routing.RegisterRoute(nameof(RouteDetailsPage), typeof(RouteDetailsPage));
+
+        InitializeComponent();
 
 		//MainPage = new AppShell();
 		DriverRepo= driverRepository;

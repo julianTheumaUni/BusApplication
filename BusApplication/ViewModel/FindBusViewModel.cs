@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Pages;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,6 +17,20 @@ namespace BusApplication.ViewModel
         void Test()
         {
             Debug.WriteLine("DisplayedRoutes Count = " + displayedRoutes.Count);
+            Debug.WriteLine("DisplayedRoutes Count = " + displayedRoutes.Count);
+            Debug.WriteLine("DisplayedRoutes Count = " + displayedRoutes.Count);
+        }
+
+        [RelayCommand]
+        async Task NavigateToRouteDetailsPage()
+        {
+            await Shell.Current.GoToAsync(nameof(RouteDetailsPage));
+        }
+
+        [RelayCommand]
+        void TryAlert()
+        {
+            Application.Current.MainPage.DisplayAlert("Are you sure you want to request Bus 888 to stop?", "The bus will stop at Bus Stop 999?", "Cancel", "Confirm");
         }
     }
 }

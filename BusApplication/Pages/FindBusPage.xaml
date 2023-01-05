@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              x:Class="BusApplication.FindBusPage"
+             Title="Available Buses"
              xmlns:viewmodel="clr-namespace:BusApplication.ViewModel"
              x:DataType="viewmodel:FindBusViewModel"
-             Title="Available Buses">
+             BackgroundColor="#B9B9B9"
+             >
     <StackLayout>
-        <Frame Margin="0,0,0,12">
+        <Frame Margin="0,0,0,5">
             <VerticalStackLayout>
                 <HorizontalStackLayout>
-                    
+
                 <Label Text="Find a bus from" FontSize="22" Margin="0,0,10,0" VerticalOptions="Center" FontAttributes="Bold"/>
                     <Picker Title="Select City"  FontSize="22">
                         <Picker.Items>
@@ -68,7 +68,7 @@
             </VerticalStackLayout>
         </Frame>
 
-        <ScrollView Orientation="Vertical" HeightRequest="800">
+        <ScrollView Orientation="Vertical" HeightRequest="420">
             
         <CollectionView>
             <CollectionView.ItemsSource>
@@ -126,8 +126,8 @@
                                     </HorizontalStackLayout>
                                 </VerticalStackLayout>
                                 <VerticalStackLayout Margin="40, 0, 0, 0">
-                                    <Button Text="Details" BackgroundColor="#23538F" Margin="0,5,0,5"/>
-                                    <Button Text="Request Stop" BackgroundColor="#FF7171"/>
+                                        <Button Text="Details" BackgroundColor="#23538F" Margin="0,5,0,5" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FindBusViewModel}},Path=NavigateToRouteDetailsPageCommand}"/>
+                                        <Button Text="Request Stop" BackgroundColor="#FF7171" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FindBusViewModel}},Path=TryAlertCommand}"/>
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
                         </VerticalStackLayout>

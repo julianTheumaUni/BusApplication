@@ -9,7 +9,7 @@
         <Label 
             Text="Drivers"
             TextColor="Blue"
-            FontSize="22"
+            FontSize="40"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <CollectionView x:Name="DriversCollectionView" ItemsSource="{Binding DriversCollectionViewItems}">
@@ -25,7 +25,12 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="Add" Command="{Binding AddCommand}"/>
-        
+        <Button Text="Add" Margin ="10,100,10,10" BorderColor ="Blue" Command="{Binding AddCommand}"/>
+        <Button Text="View" Margin ="10,40,10,10" BorderColor ="Blue" Command="{Binding GetAllDriversCommand}"/>
+        <Button Text="Update" Margin ="10,40,10,10" BorderColor ="Blue" />
+        <!--Command="{Binding UpdateCommand}"/> -->
+        <Button Text="Delete" Margin ="10,40,10,10" BorderColor ="Blue"/>
+        <!--Command="{Binding DeleteCommand}"/> -->
+
     </VerticalStackLayout>
 </ContentPage>

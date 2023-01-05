@@ -1,5 +1,6 @@
 ﻿using BusApplication.Repositories;
 using BusApplication.ViewModel;
+using Pages;
 
 namespace BusApplication;
 
@@ -25,7 +26,9 @@ public static class MauiProgram
 		builder.Services.AddTransient<DriverManagementViewModel>();
 
 		builder.Services.AddSingleton<FindBusPage>();
-		builder.Services.AddTransient<FindBusViewModel>();
+		builder.Services.AddSingleton<FindBusViewModel>();
+
+		builder.Services.AddSingleton<RouteDetailsPage>();
 		/*
 		 *Transient is created and destroyed each time, useful for dynamic content
 		 *Singleton is created once and not destroyed
