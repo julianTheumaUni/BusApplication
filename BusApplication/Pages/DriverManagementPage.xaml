@@ -25,7 +25,14 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="Add" Margin ="10,100,10,10" BorderColor ="Blue" Command="{Binding AddCommand}"/>
+        <Button Text="Add"
+                BackgroundColor="#2F329F"
+                TextColor="#FFFFFF"
+                Margin="20,20,20,0"
+                HeightRequest="40"
+                HorizontalOptions="Fill" 
+                Command="{Binding AddCommand}"/>
+        
         <Button Text="View" Margin ="10,40,10,10" BorderColor ="Blue" Command="{Binding GetAllDriversCommand}"/>
         <Button Text="Update" Margin ="10,40,10,10" BorderColor ="Blue" />
         <!--Command="{Binding UpdateCommand}"/> -->
