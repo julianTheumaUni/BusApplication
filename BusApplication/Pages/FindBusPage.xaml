@@ -10,6 +10,7 @@
     <StackLayout>
         <Frame Margin="0,0,0,5">
             <VerticalStackLayout>
+		        <Button Text="Add (Test)" Margin ="10,100,10,10" BorderColor ="Blue" Command="{Binding AddBusCommand}"/>
                 <HorizontalStackLayout>
 
                 <Label Text="Find a bus from" FontSize="22" Margin="0,0,10,0" VerticalOptions="Center" FontAttributes="Bold"/>
@@ -72,14 +73,9 @@
             
         <CollectionView>
             <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Item 1</x:String>
-                    <x:String>Item 2</x:String>
-                        <x:String>Item 3</x:String>
-                        <x:String>Item 4</x:String>
-                        <x:String>Item 5</x:String>
-
-                    </x:Array>
+                <x:Array Type="{x:Type local:bus}">
+                    (BusRepo.GetAllDrivers()).ForEach(bus => {<local:Bus busId=bus.busId routeNum=bus.routeNum routeTowns=bus.routeTowns stopsNum=bus.stopsNum seatsLeft=bus.seatsLeft accessibility=bus.accessibility});
+                </x:Array>
             </CollectionView.ItemsSource>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -96,13 +92,13 @@
                                         CornerRadius="70"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center">
-                                <Label Text="21"
+                                <Label Text="{Binding routeNum}"
                                     TextColor="White"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center" />
                                 </Frame>
                                 <VerticalStackLayout Grid.Column="1">
-                                <Label Text="Marsaskala > Fgura > Valletta > Sliema" FontAttributes="Bold"/>
+                                <Label Text="{Binding routeTowns}" FontAttributes="Bold"/>
                                 <Label Text="17:00" TextColor="Gray" FontAttributes="Bold"/>
                             </VerticalStackLayout>
                         </Grid>
@@ -110,15 +106,17 @@
                                 <VerticalStackLayout>
                                     <HorizontalStackLayout Margin="0,0,0,4">
                                         <Image HeightRequest="20" WidthRequest="20" Source="stop_sign_icon" Margin="0,0,5,0"/>
-                                        <Label Text="10 Bus Stops" />
+                                        <Label Text="{Binding stopsNum}" />
+					<Label Text=" Bus Stops" />
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout Margin="0,0,0,4">
                                         <Image HeightRequest="20" WidthRequest="20" Source="bus_icon" Margin="0,0,5,0"/>
-                                        <Label Text="888" />
+                                        <Label Text="{Binding busId}" />
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout Margin="0,0,0,4">
                                         <Image HeightRequest="20" WidthRequest="20" Source="seat_icon" Margin="0,0,5,0"/>
-                                        <Label Text="20 Seats Left" />
+                                        <Label Text="{Binding seatsLeft}" />
+					<Label Text=" Seats Left" />
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout Margin="0,0,0,4">
                                         <Image HeightRequest="20" WidthRequest="20" Source="acessibility_icon" Margin="0,0,5,0"/>
