@@ -1,4 +1,4 @@
-﻿using BusApplication.Repositories;
+using BusApplication.Repositories;
 using BusApplication.ViewModel;
 using Pages;
 
@@ -19,6 +19,10 @@ public static class MauiProgram
 
 		string dbPath = FileAccessHelper.GetLocalFilePath("people.db3");
         builder.Services.AddSingleton<DriverRepository>(s => ActivatorUtilities.CreateInstance<DriverRepository>(s, dbPath));
+
+		string dbPathBuses = FileAccessHelper.GetLocalFilePath("buses.db3");
+        builder.Services.AddSingleton<BusRepository>(s => ActivatorUtilities.CreateInstance<BusRepository>(s, dbPathBuses));
+
         builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<MainViewModel>();
 
@@ -29,14 +33,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<FindBusViewModel>();
 
 		builder.Services.AddSingleton<RouteDetailsPage>();
-
-        builder.Services.AddTransient<UserManagementPage>();
-        builder.Services.AddTransient<UserManagementViewModel>();
-
-        builder.Services.AddTransient<FleetManagementPage>();
-        builder.Services.AddTransient<FleetManagementViewModel>();
-
-        /*
+		/*
 		 *Transient is created and destroyed each time, useful for dynamic content
 		 *Singleton is created once and not destroyed
 		 */
