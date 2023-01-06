@@ -1,4 +1,4 @@
-﻿using BusApplication.Repositories;
+using BusApplication.Repositories;
 using Pages;
 using System.Diagnostics.Contracts;
 using System.Windows;
@@ -16,13 +16,12 @@ public partial class App : Application
 		Routing.RegisterRoute(nameof(DriverManagementPage), typeof(DriverManagementPage));
 		Routing.RegisterRoute(nameof(FindBusPage), typeof(FindBusPage));
         Routing.RegisterRoute(nameof(RouteDetailsPage), typeof(RouteDetailsPage));
-        Routing.RegisterRoute(nameof(UserManagementPage), typeof(UserManagementPage));
-        Routing.RegisterRoute(nameof(FleetManagementPage), typeof(FleetManagementPage));
 
         InitializeComponent();
 
 		//MainPage = new AppShell();
 		DriverRepo= driverRepository;
+		BusRepo = busRepository;
 
 
 	}
