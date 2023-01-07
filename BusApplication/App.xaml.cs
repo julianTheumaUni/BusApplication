@@ -9,6 +9,7 @@ public partial class App : Application
 {
 	public static DriverRepository DriverRepo { get; private set; }
 	public static BusRepository BusRepo { get; private set; }
+	public static RouteRepository RouteRepo { get; private set; }
 	public string Tab1Text { get; set; }
 
 	public App(DriverRepository driverRepository, BusRepository busRepository)
@@ -29,7 +30,6 @@ public partial class App : Application
 		//MainPage = new AppShell();
 		DriverRepo= driverRepository;
 		BusRepo = busRepository;
-
-
+		RouteRepo = routeRepository;
 	}
 }
