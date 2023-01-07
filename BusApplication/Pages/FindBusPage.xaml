@@ -73,8 +73,8 @@
             
         <CollectionView>
             <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type local:bus}">
-                    (BusRepo.GetAllDrivers()).ForEach(bus => {<local:Bus busId=bus.busId routeNum=bus.routeNum routeTowns=bus.routeTowns stopsNum=bus.stopsNum seatsLeft=bus.seatsLeft accessibility=bus.accessibility});
+                <x:Array Type="{x:Type local:Bus}">
+                    (BusRepo.GetAllDrivers()).ForEach(bus => {<local:Bus> busId="{Binding bus.busId}" routeNum="{Binding bus.routeNum}" routeTowns="{Binding bus.routeTowns}" stopsNum="{Binding bus.stopsNum}" seatsLeft="{Binding bus.seatsLeft}" accessibility="{Binding bus.accessibility}" </local:Bus>});
                 </x:Array>
             </CollectionView.ItemsSource>
             <CollectionView.ItemTemplate>
