@@ -14,8 +14,15 @@ namespace BusApplication.ViewModel
 {
     public partial class FindBusViewModel : ObservableObject
     {
+        public List<Bus> busList;
+
+        public FindBusViewModel()
+        {
+            busList = App.BusRepo.GetAllBuses();
+        }
+
         [ObservableProperty]
-        List<int> displayedRoutes = new List<int> { 1,2,3,4,5,6 };
+        List<int> displayedRoutes = new List<int> { 1, 2, 3, 4, 5, 6 };
 
         [RelayCommand]
         void Test()
