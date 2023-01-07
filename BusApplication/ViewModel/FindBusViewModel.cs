@@ -65,7 +65,7 @@ namespace BusApplication.ViewModel
             List<BusCollectionView> busCollection = new List<DriverCollectionView>();
             buses.ForEach(bus =>
             {
-                int busNumber = busID;
+                int busNumber = bus.busID;
                 BusCollectionViewItems.Add(new BusCollectionView { busID = busNumber});
             });
         }
