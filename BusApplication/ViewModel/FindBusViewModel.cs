@@ -43,8 +43,8 @@ namespace BusApplication.ViewModel
         void AddBus()
         {
             Debug.WriteLine("Adding from View Model");
-            App.DriverRepo.AddBus("999", "67", "Mosta > Mellieha > Sqallija > Il-Qamar > Rabat", "14203", "2", "0");
-            App.DriverRepo.GetAllBuses().ForEach(bus => { Debug.WriteLine(bus.busId); });
+            App.BusRepo.AddBus("999", "67", "Mosta > Mellieha > Sqallija > Il-Qamar > Rabat", "14203", "2", "0");
+            App.BusRepo.GetAllBuses().ForEach(bus => { Debug.WriteLine(bus.busId); });
         }
 
 	[RelayCommand]
