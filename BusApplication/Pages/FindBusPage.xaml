@@ -16,31 +16,31 @@
 
                 <Label Text="Find a bus from" FontSize="22" Margin="0,0,10,0" VerticalOptions="Center" FontAttributes="Bold"/>
                     <Picker Title="Select City"  FontSize="22">
-                        <Picker.Items>
+                        <Picker.ItemsSource>
                             <x:String>Marsaskala</x:String>
                             <x:String>Zejtun</x:String>
                             <x:String>Fgura</x:String>
                             <x:String>Sliema</x:String>
                             <x:String>Valletta</x:String>
-                        </Picker.Items>
+                        </Picker.ItemsSource>
                     </Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label Text="to" Margin="0,0,10,0" FontSize="22" VerticalOptions="Center" FontAttributes="Bold"/>
                     <Picker Title="Select City" FontSize="22" VerticalOptions="End">
-                        <Picker.Items>
+                        <Picker.ItemsSource>
                             <x:String>Marsaskala</x:String>
                             <x:String>Zejtun</x:String>
                             <x:String>Fgura</x:String>
                             <x:String>Sliema</x:String>
                             <x:String>Valletta</x:String>
-                        </Picker.Items>
+                        </Picker.ItemsSource>
                     </Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label Text="at" Margin="0,0,10,0" FontSize="22" VerticalOptions="Center" FontAttributes="Bold"/>
                     <Picker Title="Select Time" FontSize="22" VerticalOptions="Center">
-                        <Picker.Items>
+                        <Picker.ItemsSource>
                             <x:String>06:00</x:String>
                             <x:String>07:00</x:String>
                             <x:String>08:00</x:String>
@@ -59,7 +59,7 @@
                             <x:String>21:00</x:String>
                             <x:String>22:00</x:String>
                             <x:String>23:00</x:String>
-                        </Picker.Items>
+                        </Picker.ItemsSource>
                     </Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
@@ -75,7 +75,7 @@
         <CollectionView>
             <CollectionView.ItemsSource>
                 <x:Array Type="{x:Type local:Bus}">
-                    (BusRepo.GetAllDrivers()).ForEach(bus => {local:Bus busId="{Binding bus.busId}" routeNum="{Binding bus.routeNum}" routeTowns="{Binding bus.routeTowns}" stopsNum="{Binding bus.stopsNum}" seatsLeft="{Binding bus.seatsLeft}" accessibility="{Binding bus.accessibility}"});
+                    BusRepo.GetAllBuses();
                 </x:Array>
             </CollectionView.ItemsSource>
             <CollectionView.ItemTemplate>
