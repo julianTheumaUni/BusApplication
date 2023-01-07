@@ -12,7 +12,7 @@ public partial class App : Application
 	public static RouteRepository RouteRepo { get; private set; }
 	public string Tab1Text { get; set; }
 
-	public App(DriverRepository driverRepository, BusRepository busRepository)
+	public App(DriverRepository driverRepository, BusRepository busRepository, RouteRepository routeRepository)
 	{
 		Tab1Text = "Admin";
 		Routing.RegisterRoute(nameof(DriverManagementPage), typeof(DriverManagementPage));
