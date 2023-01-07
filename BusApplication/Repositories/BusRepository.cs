@@ -42,7 +42,7 @@ namespace BusApplication.Repositories
                 {
                     busId = BusID,
                     routeNum = RouteNum,
-                    routeTowns, RouteTowns,
+                    routeTowns = RouteTowns,
                     stopsNum = StopsNum,
 		    seatsLeft = SeatsLeft,
 		    accessibility = Accessibility
