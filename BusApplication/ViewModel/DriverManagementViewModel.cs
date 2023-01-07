@@ -1,6 +1,7 @@
 ﻿using BusApplication.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Pages;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -57,6 +58,30 @@ namespace BusApplication.ViewModel
                 int driverBus = driver.BusNumber;
                 DriversCollectionViewItems.Add(new DriverCollectionView { Name = driverName, BusNumber = driverBus });
             });
+        }
+
+        [RelayCommand]
+        async Task NavigateToViewDriverPage()
+        {
+            await Shell.Current.GoToAsync(nameof(ViewDriverPage));
+        }
+
+        [RelayCommand]
+        async Task NavigateToAddDriverPage()
+        {
+            await Shell.Current.GoToAsync(nameof(AddDriverPage));
+        }
+
+        [RelayCommand]
+        async Task NavigateToUpdateDriverPage()
+        {
+            await Shell.Current.GoToAsync(nameof(UpdateDriverPage));
+
+        }
+        [RelayCommand]
+        async Task NavigateToDeleteDriverPage()
+        {
+            await Shell.Current.GoToAsync(nameof(DeleteDriverPage));
         }
     }
     //[RelayCommand]

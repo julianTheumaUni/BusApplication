@@ -56,10 +56,37 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Pages\AddDriverPage.xaml.cs">
+	    <DependentUpon>AddDriverPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\DeleteDriverPage.xaml.cs">
+	    <DependentUpon>DeleteDriverPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\ViewDriverPage.xaml.cs">
+	    <DependentUpon>ViewDriverPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\UpdateDriverPage.xaml.cs">
+	    <DependentUpon>UpdateDriverPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Pages\DriverManagementPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\FindBusPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\UpdateDriverPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\DeleteDriverPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ViewDriverPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\AddDriverPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\RouteDetailsPage.xaml">

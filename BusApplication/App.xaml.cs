@@ -16,6 +16,10 @@ public partial class App : Application
 		Routing.RegisterRoute(nameof(DriverManagementPage), typeof(DriverManagementPage));
 		Routing.RegisterRoute(nameof(FindBusPage), typeof(FindBusPage));
         Routing.RegisterRoute(nameof(RouteDetailsPage), typeof(RouteDetailsPage));
+		Routing.RegisterRoute(nameof(ViewDriverPage), typeof(ViewDriverPage));
+        Routing.RegisterRoute(nameof(AddDriverPage), typeof(AddDriverPage));
+        Routing.RegisterRoute(nameof(UpdateDriverPage), typeof(UpdateDriverPage));
+        Routing.RegisterRoute(nameof(DeleteDriverPage), typeof(DeleteDriverPage));
 
         InitializeComponent();
 
