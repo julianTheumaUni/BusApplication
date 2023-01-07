@@ -4,6 +4,7 @@
              x:Class="BusApplication.FindBusPage"
              Title="Available Buses"
              xmlns:viewmodel="clr-namespace:BusApplication.ViewModel"
+	     xmlns:local="clr-namespace:BusApplication.Models"
              x:DataType="viewmodel:FindBusViewModel"
              BackgroundColor="#B9B9B9"
              >
@@ -74,7 +75,7 @@
         <CollectionView>
             <CollectionView.ItemsSource>
                 <x:Array Type="{x:Type local:Bus}">
-                    (BusRepo.GetAllDrivers()).ForEach(bus => {<local:Bus> busId="{Binding bus.busId}" routeNum="{Binding bus.routeNum}" routeTowns="{Binding bus.routeTowns}" stopsNum="{Binding bus.stopsNum}" seatsLeft="{Binding bus.seatsLeft}" accessibility="{Binding bus.accessibility}" </local:Bus>});
+                    (BusRepo.GetAllDrivers()).ForEach(bus => {local:Bus busId="{Binding bus.busId}" routeNum="{Binding bus.routeNum}" routeTowns="{Binding bus.routeTowns}" stopsNum="{Binding bus.stopsNum}" seatsLeft="{Binding bus.seatsLeft}" accessibility="{Binding bus.accessibility}"});
                 </x:Array>
             </CollectionView.ItemsSource>
             <CollectionView.ItemTemplate>
