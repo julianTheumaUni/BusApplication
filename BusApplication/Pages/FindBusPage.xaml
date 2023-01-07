@@ -4,8 +4,6 @@
              x:Class="BusApplication.FindBusPage"
              Title="Available Buses"
              xmlns:viewmodel="clr-namespace:BusApplication.ViewModel"
-	     xmlns:local="clr-namespace:BusApplication.Models"
-             x:DataType="viewmodel:FindBusViewModel"
              BackgroundColor="#B9B9B9"
              >
     <StackLayout>
@@ -16,31 +14,31 @@
 
                 <Label Text="Find a bus from" FontSize="22" Margin="0,0,10,0" VerticalOptions="Center" FontAttributes="Bold"/>
                     <Picker Title="Select City"  FontSize="22">
-                        <Picker.ItemsSource>
+                        <Picker.Items>
                             <x:String>Marsaskala</x:String>
                             <x:String>Zejtun</x:String>
                             <x:String>Fgura</x:String>
                             <x:String>Sliema</x:String>
                             <x:String>Valletta</x:String>
-                        </Picker.ItemsSource>
+                        </Picker.Items>
                     </Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label Text="to" Margin="0,0,10,0" FontSize="22" VerticalOptions="Center" FontAttributes="Bold"/>
                     <Picker Title="Select City" FontSize="22" VerticalOptions="End">
-                        <Picker.ItemsSource>
+                        <Picker.Items>
                             <x:String>Marsaskala</x:String>
                             <x:String>Zejtun</x:String>
                             <x:String>Fgura</x:String>
                             <x:String>Sliema</x:String>
                             <x:String>Valletta</x:String>
-                        </Picker.ItemsSource>
+                        </Picker.Items>
                     </Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
                     <Label Text="at" Margin="0,0,10,0" FontSize="22" VerticalOptions="Center" FontAttributes="Bold"/>
                     <Picker Title="Select Time" FontSize="22" VerticalOptions="Center">
-                        <Picker.ItemsSource>
+                        <Picker.Items>
                             <x:String>06:00</x:String>
                             <x:String>07:00</x:String>
                             <x:String>08:00</x:String>
@@ -59,7 +57,7 @@
                             <x:String>21:00</x:String>
                             <x:String>22:00</x:String>
                             <x:String>23:00</x:String>
-                        </Picker.ItemsSource>
+                        </Picker.Items>
                     </Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
@@ -71,14 +69,9 @@
         </Frame>
 
         <ScrollView Orientation="Vertical" HeightRequest="420">
-            
-        <CollectionView>
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type local:Bus}">
-                    BusRepo.GetAllBuses();
-                </x:Array>
-            </CollectionView.ItemsSource>
-            <CollectionView.ItemTemplate>
+
+            <CollectionView ItemsSource="{Binding busList}">
+                <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame Margin="0,0,0,5" HasShadow="True">
                         <VerticalStackLayout>
