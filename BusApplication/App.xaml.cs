@@ -8,9 +8,10 @@ namespace BusApplication;
 public partial class App : Application
 {
 	public static DriverRepository DriverRepo { get; private set; }
+	public static BusRepository BusRepo { get; private set; }
 	public string Tab1Text { get; set; }
 
-	public App(DriverRepository driverRepository)
+	public App(DriverRepository driverRepository, BusRepository busRepository)
 	{
 		Tab1Text = "Admin";
 		Routing.RegisterRoute(nameof(DriverManagementPage), typeof(DriverManagementPage));
