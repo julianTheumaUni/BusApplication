@@ -34,7 +34,7 @@ namespace BusApplication.ViewModel
         [RelayCommand]
         async Task NavigateToFindABus()
         {
-            await Shell.Current.GoToAsync(nameof(Pages.FindBusPage));
+            await Shell.Current.GoToAsync(nameof(FindBusPage));
         }
         [RelayCommand]
         async Task NavigateToUserManagement()
