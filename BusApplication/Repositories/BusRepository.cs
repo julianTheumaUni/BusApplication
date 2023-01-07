@@ -26,7 +26,7 @@ namespace BusApplication.Repositories
             conn.CreateTable<Bus>();
         }
 
-        public DriverRepository(string dbPathBuses)
+        public BusRepository(string dbPathBuses)
         {
             _dbPathBuses = dbPathBuses;
         }
