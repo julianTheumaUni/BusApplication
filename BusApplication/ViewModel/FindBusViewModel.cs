@@ -66,7 +66,7 @@ namespace BusApplication.ViewModel
             buses.ForEach(bus =>
             {
                 int busNumber = bus.busId;
-                BusCollectionViewItems.Add(new BusCollectionView { busID = busNumber});
+                BusCollectionViewItems.Add(new BusCollectionView { busId = busNumber});
             });
         }
 	
