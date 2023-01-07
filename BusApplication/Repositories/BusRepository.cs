@@ -31,7 +31,7 @@ namespace BusApplication.Repositories
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddDriver(int BusID, int RouteNum, string RouteTowns, int StopsNum, int SeatsLeft, int Accessibility)
+        public void AddBus(int BusID, int RouteNum, string RouteTowns, int StopsNum, int SeatsLeft, int Accessibility)
         {
             Debug.WriteLine("Adding Bus...");
             try
