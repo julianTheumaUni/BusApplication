@@ -74,6 +74,6 @@ namespace BusApplication.ViewModel
 
     public class BusCollectionView
     {
-        public int BusId { get; set; }
+        public int busId { get; set; }
     }
 }
