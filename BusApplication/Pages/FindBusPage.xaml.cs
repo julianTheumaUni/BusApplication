@@ -1,6 +1,6 @@
 using BusApplication.ViewModel;
 
-namespace BusApplication;
+namespace Pages;
 
 public partial class FindBusPage : ContentPage
 {
