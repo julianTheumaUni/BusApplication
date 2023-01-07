@@ -29,7 +29,13 @@ public static class MauiProgram
 		builder.Services.AddTransient<DriverManagementPage>();
 		builder.Services.AddTransient<DriverManagementViewModel>();
 
-		builder.Services.AddSingleton<FindBusPage>();
+        builder.Services.AddTransient<UserManagementPage>();
+        builder.Services.AddTransient<UserManagementViewModel>();
+
+        builder.Services.AddTransient<FleetManagementPage>();
+        builder.Services.AddTransient<FleetManagementViewModel>();
+
+        builder.Services.AddSingleton<FindBusPage>();
 		builder.Services.AddSingleton<FindBusViewModel>();
 
 		builder.Services.AddSingleton<RouteDetailsPage>();

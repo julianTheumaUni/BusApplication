@@ -26,12 +26,12 @@ namespace BusApplication.Repositories
             conn.CreateTable<Bus>();
         }
 
-        public DriverRepository(string dbPathBuses)
+        public BusRepository(string dbPathBuses)
         {
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddDriver(int BusID, int RouteNum, string RouteTowns, int StopsNum, int SeatsLeft, int Accessibility)
+        public void AddBus(int BusID, int RouteNum, string RouteTowns, int StopsNum, int SeatsLeft, int Accessibility)
         {
             Debug.WriteLine("Adding Bus...");
             try
@@ -42,7 +42,7 @@ namespace BusApplication.Repositories
                 {
                     busId = BusID,
                     routeNum = RouteNum,
-                    routeTowns, RouteTowns,
+                    routeTowns = RouteTowns,
                     stopsNum = StopsNum,
 		    seatsLeft = SeatsLeft,
 		    accessibility = Accessibility

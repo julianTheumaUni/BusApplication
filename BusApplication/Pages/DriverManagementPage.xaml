@@ -25,18 +25,45 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="Add"
+        <Button Text="ADD USER"
                 BackgroundColor="#2F329F"
                 TextColor="#FFFFFF"
-                Margin="20,20,20,0"
-                HeightRequest="40"
+                FontSize="20"
+                FontAttributes="Bold"
+                Margin="40,70,40,0"
+                HeightRequest="60"
                 HorizontalOptions="Fill" 
-                Command="{Binding AddCommand}"/>
-        
-       <!-- <Button Text="View" Margin ="10,40,10,10" BorderColor ="Blue" Command="{Binding GetAllDriversCommand}"/> -->
-        <Button Text="Add" Margin ="10,100,10,10" BorderColor ="Blue" Command="{Binding NavigateToAddDriverPageCommand}"/>
-        <Button Text="View" Margin ="10,40,10,10" BorderColor ="Blue" Command="{Binding NavigateToViewDriverPageCommand}"/>
-        <Button Text="Update" Margin ="10,40,10,10" BorderColor ="Blue" Command="{Binding NavigateToUpdateDriverPageCommand}"/>
-        <Button Text="Delete" Margin ="10,40,10,10" BorderColor ="Blue" Command="{Binding NavigateToDeleteDriverPageCommand}"/>
+                Command="{Binding NavigateToAddDriverPageCommand}"/>
+
+        <Button Text="VIEW USER" 
+                BackgroundColor="#2F329F"
+                TextColor="#FFFFFF"
+                FontSize="20"
+                FontAttributes="Bold"
+                Margin="40,50,40,0"
+                HeightRequest="60"
+                HorizontalOptions="Fill"  
+                Command="{Binding NavigateToViewDriverPageCommand}"/>
+
+        <Button Text="UPDATE USER" 
+                BackgroundColor="#2F329F"
+                TextColor="#FFFFFF"
+                FontSize="20"
+                FontAttributes="Bold"
+                Margin="40,50,40,0"
+                HeightRequest="60"
+                HorizontalOptions="Fill" 
+                Command="{Binding NavigateToUpdateDriverPageCommand}"/>
+
+        <Button Text="DELETE USER" 
+                BackgroundColor="#2F329F"
+                TextColor="#FFFFFF"
+                FontSize="20"
+                FontAttributes="Bold"
+                Margin="40,50,40,0"
+                HeightRequest="60"
+                HorizontalOptions="Fill"
+                Command="{Binding NavigateToDeleteDriverPageCommand}"/>
+
     </VerticalStackLayout>
 </ContentPage>

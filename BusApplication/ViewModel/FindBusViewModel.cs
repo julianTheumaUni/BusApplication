@@ -14,8 +14,15 @@ namespace BusApplication.ViewModel
 {
     public partial class FindBusViewModel : ObservableObject
     {
+        public List<Bus> busList;
+
+        public FindBusViewModel()
+        {
+            busList = App.BusRepo.GetAllBuses();
+        }
+
         [ObservableProperty]
-        List<int> displayedRoutes = new List<int> { 1,2,3,4,5,6 };
+        List<int> displayedRoutes = new List<int> { 1, 2, 3, 4, 5, 6 };
 
         [RelayCommand]
         void Test()
@@ -43,8 +50,9 @@ namespace BusApplication.ViewModel
         void AddBus()
         {
             Debug.WriteLine("Adding from View Model");
-            App.DriverRepo.AddBus("999", "67", "Mosta > Mellieha > Sqallija > Il-Qamar > Rabat", "14203", "2", "0");
-            App.DriverRepo.GetAllBuses().ForEach(bus => { Debug.WriteLine(bus.busId); });
+            App.BusRepo.AddBus(999, 67, "Mosta > Mellieha > Sqallija > Il-Qamar > Rabat", 14203, 2, 0);
+            App.BusRepo.GetAllBuses().ForEach(bus => { Debug.WriteLine(bus.busId); });
+	    busList = App.BusRepo.GetAllBuses();
         }
 
 	[RelayCommand]
@@ -62,11 +70,11 @@ namespace BusApplication.ViewModel
 	public void SetBusCollectionView()
         {
             List<Bus> buses = GetBuses();
-            List<BusCollectionView> busCollection = new List<DriverCollectionView>();
+            List<BusCollectionView> busCollection = new List<BusCollectionView>();
             buses.ForEach(bus =>
             {
-                int busNumber = busID;
-                BusCollectionViewItems.Add(new BusCollectionView { busID = busNumber});
+                int busNumber = bus.busId;
+                BusCollectionViewItems.Add(new BusCollectionView { busId = busNumber});
             });
         }
 	
@@ -74,6 +82,6 @@ namespace BusApplication.ViewModel
 
     public class BusCollectionView
     {
-        public int BusId { get; set; }
+        public int busId { get; set; }
     }
 }
