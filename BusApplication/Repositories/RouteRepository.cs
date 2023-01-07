@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusApplication.Repositories
 {
-    public class BusRepository
+    public class RouteRepository
     {
         string _dbPathRoutes;
 
