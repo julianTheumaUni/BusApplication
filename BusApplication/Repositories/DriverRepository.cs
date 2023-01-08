@@ -1,4 +1,4 @@
-﻿using BusApplication.Models;
+using BusApplication.Models;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -68,6 +68,19 @@ namespace BusApplication.Repositories
                 Console.WriteLine("Error getting all drivers");
                 return new List<Driver>();
             }
+        }
+
+        public Driver GetDriverByID(int driverIdIn)
+        {
+            foreach (Driver driver in App.DriverRepo.GetAllDrivers())
+            {
+                if (driver.Id == driverIdIn)
+                {
+                    return driver;
+                }
+            }
+            Driver nullDriver = new Driver { Id = 0, DateOfBirth = System.DateTime.Now, Name = "N/A", PhoneNumber = "N/A", Address = "N/A", BusNumber = 0 };
+            return nullDriver;
         }
     }
 }
