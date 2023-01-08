@@ -84,16 +84,6 @@ namespace BusApplication.ViewModel
             });
         }
 	
-	public Bus GetBusByID(int busIdIn){
-		foreach(Bus bus in App.BusRepo.GetAllBuses()){
-			if(bus.busId == busIdIn){
-				return bus;
-			}
-		}
-		Bus nullBus = new Bus(0, 0, 0, false, 0, 0, false);
-		return nullBus;
-	}
-	
     }
 
     public class BusCollectionView
