@@ -55,16 +55,6 @@ namespace BusApplication.ViewModel
             });
         }
 	
-	public Route GetRouteByID(int routeIdIn){
-		foreach(Route route in App.RouteRepo.GetAllRoutes()){
-			if(route.routeId == routeIdIn){
-				return route;
-			}
-		}
-		Route nullRoute = new Route(0, "N/A");
-		return nullRoute;
-	}
-	
     }
 
     public class RouteCollectionView
