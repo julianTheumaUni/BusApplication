@@ -42,6 +42,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<FindBusViewModel>();
 
 		builder.Services.AddSingleton<RouteDetailsPage>();
+		builder.Services.AddSingleton<RouteDetailsViewModel>();
 
         builder.Services.AddSingleton<ViewDriverPage>();
 
@@ -50,6 +51,9 @@ public static class MauiProgram
         builder.Services.AddSingleton<UpdateDriverPage>();
 
         builder.Services.AddSingleton<DeleteDriverPage>();
+
+		builder.Services.AddSingleton<BusLocationPage>();
+		builder.Services.AddSingleton<BusLocationViewModel>();
         /*
 		 *Transient is created and destroyed each time, useful for dynamic content
 		 *Singleton is created once and not destroyed

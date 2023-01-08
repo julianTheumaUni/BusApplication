@@ -39,12 +39,18 @@ namespace BusApplication.ViewModel
         }
 
         [RelayCommand]
-        void TryAlert()
+        async void TryAlert()
         {
-            Application.Current.MainPage.DisplayAlert("Are you sure you want to request Bus 888 to stop?", "The bus will stop at Bus Stop 999?", "Cancel", "Confirm");
+            bool isConfirmed = await Application.Current.MainPage.DisplayAlert("Are you sure you want to request Bus 888 to stop?", "The bus will stop at Bus Stop 999?", "Confirm", "Cancel");
+            Debug.WriteLine("IS CONFIIIIIIIIIIIIIIIIIIIIRMED ", isConfirmed.ToString());
+            if (isConfirmed)
+            {
+                //bool hasPaid = await Application.Current.MainPage.DisplayAlert("Please pay your bus fare: $5.00", "Your Balance: $21.50", "Confirm", "Cancel");
+                await Shell.Current.GoToAsync(nameof(BusLocationPage));
+            }
         }
 
-	public ObservableCollection<BusCollectionView> BusCollectionViewItems { get; set; }
+        public ObservableCollection<BusCollectionView> BusCollectionViewItems { get; set; }
 
 	[RelayCommand]
         void AddBus()

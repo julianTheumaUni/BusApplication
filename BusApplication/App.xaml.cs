@@ -24,6 +24,7 @@ public partial class App : Application
         Routing.RegisterRoute(nameof(DeleteDriverPage), typeof(DeleteDriverPage));
         Routing.RegisterRoute(nameof(UserManagementPage), typeof(UserManagementPage));
         Routing.RegisterRoute(nameof(FleetManagementPage), typeof(FleetManagementPage));
+        Routing.RegisterRoute(nameof(BusLocationPage), typeof(BusLocationPage));
 
         InitializeComponent();
 
