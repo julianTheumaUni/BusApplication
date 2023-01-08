@@ -85,7 +85,7 @@ namespace BusApplication.ViewModel
         }
         
         public Driver GetDriverByID(int driverIdIn){
-		    foreach(driver in App.DriverRepo.GetAllDrivers()){
+		    foreach(Driver driver in App.DriverRepo.GetAllDrivers()){
 			    if(driver.Id == driverIdIn){
 				    return driver;
 			    }
