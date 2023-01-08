@@ -2,26 +2,28 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pages.AddDriverPage"
-             Title="Route Details"
-             BackgroundColor="#D9D9D9">
+             Title="Add Driver"
+             BackgroundColor ="White">
     <VerticalStackLayout>
 
-        <Label Text="Bill" />
-        <Entry x:Name="billInput" Placeholder="Enter Amount" Keyboard="Numeric" />
+        <Label Text="Driver ID" />
+        <Entry x:Name="DriverID" Placeholder="Enter Driver ID" Keyboard="Numeric" />
 
-        <Label Text="Tip"   />
-        <Label x:Name="tipOutput" Text="0.00" />
+        <Label Text="Date of Birth"   />
+        <Entry x:Name="DateOfBirth" Placeholder="Enter Date of Birth" Keyboard="Numeric" />
 
-        <Label Text="Total" />
-        <Label x:Name="totalOutput" Text="0.00" />
+        <Label Text="Name" />
+        <Entry x:Name="Name" Placeholder="Enter Driver Name" Keyboard="Text" />
 
-        <Label Text="Tip Percentage" />
-        <Label x:Name="tipPercent" Text="15%" />
-        <Slider x:Name="tipPercentSlider" Minimum="0" Maximum="100" Value="15" />
+        <Label Text="Phone Number" />
+        <Entry x:Name="PhoneNumber" Placeholder="Enter Driver Phone Number" Keyboard="Numeric" />
 
+        <Label Text="Address" />
+        <Entry x:Name="Address" Placeholder="Enter Driver Address" Keyboard="Text" />
 
-        <Button x:Name="roundDown" Text="Round Down" />
-        <Button x:Name="roundUp"   Text="Round Up" />
+        <Label Text="Bus Number" />
+        <Entry x:Name="BusNumber" Placeholder="Enter Driver's Bus Number" Keyboard="Numeric" />
 
+        <Button x:Name="submit" Text="Submit" />
     </VerticalStackLayout>
 </ContentPage>
