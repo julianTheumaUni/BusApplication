@@ -83,6 +83,14 @@ namespace BusApplication.ViewModel
         {
             await Shell.Current.GoToAsync(nameof(DeleteDriverPage));
         }
+        
+        public Driver GetDriverByID(int driverIdIn){
+		    foreach(driver in App.DriverRepo.GetAllDrivers()){
+			    if(driver.Id == driverIdIn){
+				    return driver;
+			    }
+		    }
+	    }
     }
     //[RelayCommand]
     //void Update()
