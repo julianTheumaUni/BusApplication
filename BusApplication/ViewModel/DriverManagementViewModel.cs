@@ -1,4 +1,4 @@
-﻿using BusApplication.Models;
+using BusApplication.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Pages;
@@ -83,16 +83,6 @@ namespace BusApplication.ViewModel
         {
             await Shell.Current.GoToAsync(nameof(DeleteDriverPage));
         }
-        
-        public Driver GetDriverByID(int driverIdIn){
-		    foreach(Driver driver in App.DriverRepo.GetAllDrivers()){
-			    if(driver.Id == driverIdIn){
-				    return driver;
-			    }
-		    }
-		    Driver nullDriver = new Driver(0, 0, "N/A", "N/A", "N/A", 0);
-		    return nullDriver;
-	    }
     }
     //[RelayCommand]
     //void Update()
