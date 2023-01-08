@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using BusApplication.ViewModel;
 
 namespace BusApplication.Models
 {
@@ -11,11 +12,17 @@ namespace BusApplication.Models
     {
         [PrimaryKey, AutoIncrement]
         public int busId { get; set; }
+        
         public int routeNum { get; set; }
-        public string routeTowns { get; set; }
-        public int stopsNum { get; set; }
+        public int driverId { get; set; }
+        public bool stopRequest { get; set; }
+        public int currentStopId { get; set; }
+        public int maxSeats { get; set; }
         public int seatsLeft { get; set; }
-        public int accessibility { get; set; }
+        public bool accessibility { get; set; }
+        
+        public Route myRoute = GetRouteById(routeNum);
+        public Driver myDriver = GetDriverById(driverId);
     }
 
     
