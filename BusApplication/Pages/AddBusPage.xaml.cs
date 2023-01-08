@@ -1,4 +1,4 @@
-﻿namespace BusApplication.Pages;
+﻿namespace Pages;
 
 public partial class AddBusPage : ContentPage
 {
