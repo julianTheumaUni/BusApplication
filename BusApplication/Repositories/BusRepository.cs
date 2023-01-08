@@ -71,5 +71,13 @@ namespace BusApplication.Repositories
                 return new List<Bus>();
             }
         }
+	    
+	public Bus GetBusByID(int busIdIn){
+		foreach(bus in App.BusRepo.GetAllBuses()){
+			if(bus.busId == busIdIn){
+				return bus;
+			}
+		}
+	}
     }
 }
