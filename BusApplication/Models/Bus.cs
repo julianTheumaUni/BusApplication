@@ -18,7 +18,7 @@ namespace BusApplication.Models
         public bool stopRequest { get; set; }
         public int currentStopId { get; set; }
         public int maxSeats { get; set; }
-        public int seatsLeft { get; set; }
+        public int seatsLeft = maxSeats;
         public bool accessibility { get; set; }
         
         public Route myRoute = GetRouteById(routeNum);
