@@ -31,22 +31,27 @@ namespace BusApplication.Repositories
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddBus(int BusID, int RouteNum, string RouteTowns, int StopsNum, int SeatsLeft, int Accessibility)
+        public void AddBus(int BusID, int RouteNum, int DriverID, bool toStop, int stopID, int SeatsLeft, bool Accessibility)
         {
             Debug.WriteLine("Adding Bus...");
             try
             {
                 Init();
 
-                conn.Insert(new Bus
+                Bus busToAdd = new Bus
                 {
                     busId = BusID,
                     routeNum = RouteNum,
-                    routeTowns = RouteTowns,
-                    stopsNum = StopsNum,
-		    seatsLeft = SeatsLeft,
-		    accessibility = Accessibility
-                });
+                    driverId = DriverID,
+                    stopRequest = toStop,
+                    currentStopId = stopID,
+                    maxSeats = SeatsLeft,
+                    accessibility = Accessibility
+                };
+
+                busToAdd.setVariables();
+
+                conn.Insert(busToAdd);
 
                 Debug.WriteLine("Successfully added a new Bus");
             }
@@ -70,6 +75,19 @@ namespace BusApplication.Repositories
                 Console.WriteLine("Error getting all buses");
                 return new List<Bus>();
             }
+        }
+
+        public Bus GetBusByID(int busIdIn)
+        {
+            foreach (Bus bus in App.BusRepo.GetAllBuses())
+            {
+                if (bus.busId == busIdIn)
+                {
+                    return bus;
+                }
+            }
+            Bus nullBus = new Bus { busId = 0, routeNum = 0, driverId = 0, stopRequest = false, currentStopId = 0, maxSeats = 0, accessibility = false };
+            return nullBus;
         }
     }
 }
