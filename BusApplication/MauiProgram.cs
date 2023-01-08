@@ -22,6 +22,9 @@ public static class MauiProgram
 
 		string dbPathBuses = FileAccessHelper.GetLocalFilePath("buses.db3");
         builder.Services.AddSingleton<BusRepository>(s => ActivatorUtilities.CreateInstance<BusRepository>(s, dbPathBuses));
+		
+		string dbPathRoutes = FileAccessHelper.GetLocalFilePath("routes.db3");
+        builder.Services.AddSingleton<RouteRepository>(s => ActivatorUtilities.CreateInstance<RouteRepository>(s, dbPathRoutes));
 
         builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<MainViewModel>();
