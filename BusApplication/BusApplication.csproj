@@ -101,6 +101,9 @@
 	  <MauiXaml Update="Pages\FleetManagementPage.xaml">
 	    <SubType></SubType>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\AddBusPage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

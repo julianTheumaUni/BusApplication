@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pages.AddBusPage"
+             Title="Add Bus"
+             BackgroundColor ="White">
+    <VerticalStackLayout>
+
+        <Label Text="Driver ID" />
+        <Entry x:Name="busID" Placeholder="Enter Bus ID" Keyboard="Numeric" />
+
+        <Label Text="Route Number"   />
+        <Entry x:Name="routeNum" Placeholder="Enter Route Number" Keyboard="Numeric" />
+
+        <Label Text="Town Route" />
+        <Entry x:Name="routeTowns" Placeholder="Enter Town Route" Keyboard="Text" />
+
+        <Label Text="Number of Stops" />
+        <Entry x:Name="stopsNum" Placeholder="Enter Driver Phone Number" Keyboard="Numeric" />
+
+        <Label Text="Seats Left" />
+        <Entry x:Name="seatsLeft" Placeholder="Seats Left" Keyboard="Numeric" />
+
+        <Label Text="Accessibility" />
+        <Entry x:Name="accessibility" Placeholder="Wheelchair Accessibility" Keyboard="Text" />
+
+        <Button x:Name="submit" Text="Submit" />
+    </VerticalStackLayout>
+</ContentPage>
