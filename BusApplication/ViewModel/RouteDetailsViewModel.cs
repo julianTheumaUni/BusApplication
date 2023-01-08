@@ -61,6 +61,8 @@ namespace BusApplication.ViewModel
 				return route;
 			}
 		}
+		Route nullRoute = new Route(0, "N/A");
+		return nullRoute;
 	}
 	
     }
