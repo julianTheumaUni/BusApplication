@@ -12,7 +12,7 @@
             FontSize="40"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <CollectionView x:Name="DriversCollectionView" >
+        <CollectionView x:Name="BusesCollectionView" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <HorizontalStackLayout Padding="10">
