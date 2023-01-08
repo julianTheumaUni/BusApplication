@@ -67,5 +67,18 @@ namespace BusApplication.Repositories
                 return new List<Route>();
             }
         }
+
+        public Route GetRouteByID(int routeIdIn)
+        {
+            foreach (Route route in App.RouteRepo.GetAllRoutes())
+            {
+                if (route.routeNum == routeIdIn)
+                {
+                    return route;
+                }
+            }
+            Route nullRoute = new Route { routeNum = 0, routeTown = "N/A" };
+            return nullRoute;
+        }
     }
 }
