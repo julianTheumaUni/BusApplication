@@ -85,7 +85,7 @@ namespace BusApplication.ViewModel
         }
 	
 	public Bus GetBusByID(int busIdIn){
-		foreach(bus in App.BusRepo.GetAllBuses()){
+		foreach(Bus bus in App.BusRepo.GetAllBuses()){
 			if(bus.busId == busIdIn){
 				return bus;
 			}
