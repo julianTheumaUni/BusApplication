@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              x:Class="BusApplication.FindBusPage"
+             Title="Available Buses"
              xmlns:viewmodel="clr-namespace:BusApplication.ViewModel"
-             x:DataType="viewmodel:FindBusViewModel"
-             Title="Available Buses">
+             BackgroundColor="#B9B9B9"
+             >
     <StackLayout>
-        <Button Text="Get buses" Command="{Binding GetAllBusesCommand}"/>
-        <Frame Margin="0,0,0,12">
+        <Frame Margin="0,0,0,5">
             <VerticalStackLayout>
+		        <Button Text="Add (Test)" Margin ="10,100,10,10" BorderColor ="Blue" Command="{Binding AddBusCommand}"/>
                 <HorizontalStackLayout>
 
-                    <Label Text="Find a bus from" FontSize="22" Margin="0,0,10,0" VerticalOptions="Center" FontAttributes="Bold"/>
+                <Label Text="Find a bus from" FontSize="22" Margin="0,0,10,0" VerticalOptions="Center" FontAttributes="Bold"/>
                     <Picker Title="Select City"  FontSize="22">
                         <Picker.Items>
                             <x:String>Marsaskala</x:String>
@@ -62,8 +61,8 @@
                     </Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
-                    <CheckBox />
-                    <Label Text="Accessibility" VerticalOptions="Center"/>
+                <CheckBox />
+                <Label Text="Accessibility" VerticalOptions="Center"/>
                     <Button  Text="Search" Margin="150,0,0,0"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
@@ -71,71 +70,63 @@
 
         <ScrollView Orientation="Vertical" HeightRequest="420">
 
-            <CollectionView>
-                <CollectionView.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Item 1</x:String>
-                        <x:String>Item 2</x:String>
-                        <x:String>Item 3</x:String>
-                        <x:String>Item 4</x:String>
-                        <x:String>Item 5</x:String>
-
-                    </x:Array>
-                </CollectionView.ItemsSource>
+            <CollectionView ItemsSource="{Binding busList}">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame Margin="0,0,0,5" HasShadow="True">
-                            <VerticalStackLayout>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="70"></ColumnDefinition>
-                                        <ColumnDefinition Width="1*"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Frame Padding="10"
+                <DataTemplate>
+                    <Frame Margin="0,0,0,5" HasShadow="True">
+                        <VerticalStackLayout>
+                            <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                                <Frame Padding="10"
                                        Grid.Column="0"
                                         BackgroundColor="Blue"
                                         CornerRadius="70"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center">
-                                        <Label Text="21"
+                                <Label Text="{Binding routeNum}"
                                     TextColor="White"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center" />
-                                    </Frame>
-                                    <VerticalStackLayout Grid.Column="1">
-                                        <Label Text="Marsaskala > Fgura > Valletta > Sliema" FontAttributes="Bold"/>
-                                        <Label Text="17:00" TextColor="Gray" FontAttributes="Bold"/>
-                                    </VerticalStackLayout>
-                                </Grid>
-                                <HorizontalStackLayout HorizontalOptions="Center" Margin="50,10,0,0">
-                                    <VerticalStackLayout>
-                                        <HorizontalStackLayout Margin="0,0,0,4">
-                                            <Image HeightRequest="20" WidthRequest="20" Source="stop_sign_icon" Margin="0,0,5,0"/>
-                                            <Label Text="10 Bus Stops" />
-                                        </HorizontalStackLayout>
-                                        <HorizontalStackLayout Margin="0,0,0,4">
-                                            <Image HeightRequest="20" WidthRequest="20" Source="bus_icon" Margin="0,0,5,0"/>
-                                            <Label Text="888" />
-                                        </HorizontalStackLayout>
-                                        <HorizontalStackLayout Margin="0,0,0,4">
-                                            <Image HeightRequest="20" WidthRequest="20" Source="seat_icon" Margin="0,0,5,0"/>
-                                            <Label Text="20 Seats Left" />
-                                        </HorizontalStackLayout>
-                                        <HorizontalStackLayout Margin="0,0,0,4">
-                                            <Image HeightRequest="20" WidthRequest="20" Source="acessibility_icon" Margin="0,0,5,0"/>
-                                            <Label Text="Acessibility" />
-                                        </HorizontalStackLayout>
-                                    </VerticalStackLayout>
-                                    <VerticalStackLayout Margin="40, 0, 0, 0">
+                                </Frame>
+                                <VerticalStackLayout Grid.Column="1">
+                                <Label Text="{Binding myRoute.routeTown}" FontAttributes="Bold"/>
+                                <Label Text="17:00" TextColor="Gray" FontAttributes="Bold"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                            <HorizontalStackLayout HorizontalOptions="Center" Margin="50,10,0,0">
+                                <VerticalStackLayout>
+                                    <HorizontalStackLayout Margin="0,0,0,4">
+                                        <Image HeightRequest="20" WidthRequest="20" Source="stop_sign_icon" Margin="0,0,5,0"/>
+                                        <Label Text="{Binding myRoute.routeTown}" />
+					<Label Text=" Bus Stops" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Margin="0,0,0,4">
+                                        <Image HeightRequest="20" WidthRequest="20" Source="bus_icon" Margin="0,0,5,0"/>
+                                        <Label Text="{Binding busId}" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Margin="0,0,0,4">
+                                        <Image HeightRequest="20" WidthRequest="20" Source="seat_icon" Margin="0,0,5,0"/>
+                                        <Label Text="{Binding seatsLeft}" />
+					<Label Text=" Seats Left" />
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Margin="0,0,0,4">
+                                        <Image HeightRequest="20" WidthRequest="20" Source="acessibility_icon" Margin="0,0,5,0"/>
+                                        <Label Text="Acessibility" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Margin="40, 0, 0, 0">
                                         <Button Text="Details" BackgroundColor="#23538F" Margin="0,5,0,5" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FindBusViewModel}},Path=NavigateToRouteDetailsPageCommand}"/>
                                         <Button Text="Request Stop" BackgroundColor="#FF7171" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FindBusViewModel}},Path=TryAlertCommand}"/>
-                                    </VerticalStackLayout>
-                                </HorizontalStackLayout>
-                            </VerticalStackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
         </ScrollView>
 
     </StackLayout>
