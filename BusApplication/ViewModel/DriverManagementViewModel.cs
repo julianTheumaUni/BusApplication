@@ -90,6 +90,8 @@ namespace BusApplication.ViewModel
 				    return driver;
 			    }
 		    }
+		    Driver nullDriver = new Driver(0, 0, "N/A", "N/A", "N/A", 0);
+		    return nullDriver;
 	    }
     }
     //[RelayCommand]
