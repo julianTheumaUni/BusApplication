@@ -43,22 +43,63 @@ namespace BusApplication.Repositories
                 //busToAdd.setVariables();
                 Debug.WriteLine($"User Id: {userToAdd.UserId}");
                 Debug.WriteLine($"User Type: {userToAdd.UserType}");
-                conn.Insert(userToAdd);
+                int insertedId = conn.Insert(userToAdd);
                 Debug.WriteLine("Successfully added a new User");
                 
-                return userToAdd.UserId;
+                return insertedId;
             }
             catch (Exception ex){
                 Debug.WriteLine(ex.ToString());
                 return -1;
             }
         }
+        public User GetUserFromId(int userId)
+        {
+            Init();
+            var item = conn.Table<User>().Where(i => i.UserId == userId).FirstOrDefault();
+            return item;
+        }
+
+        public List<User> GetAllUsers()
+        {
+            Init();
+            var userList = conn.Table<User>().ToList();
+            return userList;
+        }
+
+        public void DeleteUser(int UserId)
+        {
+            Init();
+            conn.Delete<User>(UserId);
+        }
 
         public UserType GetUserTypeFromId(int UserId)
         {
+            try
+            {
+
             Init();
             var item = conn.Table<User>().Where(i => i.UserId == App.LoggedInUserId).FirstOrDefault();
             return item.UserType;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return UserType.BusUser;
+            }
+        }
+
+        public void EditUser(int userIdToChange, User updatedUser)
+        {
+            Init();
+
+            var item = conn.Table<User>().Where(i => i.UserId == userIdToChange).FirstOrDefault();
+
+            if(item != null)
+            {
+                item = updatedUser;
+                conn.Update(item);
+            }
         }
 
     }

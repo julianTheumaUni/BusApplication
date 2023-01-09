@@ -32,9 +32,9 @@ namespace BusApplication.ViewModel
         string inputPhoneNumber;
 
         [ObservableProperty]
-        bool successPopUp = false;
+        bool successPopUp;
         [ObservableProperty]
-        bool failPopUp = false;
+        bool failPopUp;
 
         [RelayCommand]
         void Add()

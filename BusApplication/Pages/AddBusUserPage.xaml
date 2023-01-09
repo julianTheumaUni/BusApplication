@@ -9,10 +9,18 @@
 
     <VerticalStackLayout>
 
-        <Label Text="User ID" />
-        <Entry x:Name="UserID" Placeholder="Enter User ID" Keyboard="Numeric" />
+        <Picker Title="User Type" SelectedItem="{Binding InputSelectedUserType}">
 
-        <Picker Title="Bus User Type">
+            <Picker.Items>
+                <x:String>Admin</x:String>
+                <x:String>Bus User</x:String>
+                <x:String>Driver</x:String>
+                <x:String>Driver Manager</x:String>
+                <x:String>User Manager</x:String>
+            </Picker.Items>
+        </Picker>
+        
+        <Picker Title="Bus User Type" SelectedItem="{Binding InputSelectedBusUserType}" IsVisible="{Binding BusUserIsSelected}">
 
             <Picker.Items>
                 <x:String>Adult</x:String>
@@ -22,6 +30,8 @@
             </Picker.Items>
         </Picker>
 
-        <Button x:Name="submit" Text="Submit" Command="{Binding AddBusUserPageCommand}"/>
+        <Button x:Name="submit" Text="Add" Command="{Binding AddBusUserCommand}"/>
+        <Button Text="check user" Command="{Binding GetSelectedCommand}"/>
+        <Button  Text="Get all users" Command="{Binding GetAllUsersCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

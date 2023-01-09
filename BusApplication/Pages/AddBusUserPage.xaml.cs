@@ -1,9 +1,12 @@
-﻿namespace Pages;
+﻿using BusApplication.ViewModel;
+
+namespace Pages;
 
 public partial class AddBusUserPage : ContentPage
 {
-	public AddBusUserPage()
+	public AddBusUserPage(UserManagementViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
 }
