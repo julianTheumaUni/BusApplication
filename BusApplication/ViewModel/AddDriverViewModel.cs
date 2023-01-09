@@ -32,7 +32,13 @@ namespace BusApplication.ViewModel
         string inputPhoneNumber;
 
         [ObservableProperty]
-        bool successPopUp;
+        string text;
+
+        [ObservableProperty]
+        ObservableCollection<string> items;
+
+        [ObservableProperty]
+        bool successPopUp = false;
         [ObservableProperty]
         bool failPopUp;
 
@@ -68,6 +74,23 @@ namespace BusApplication.ViewModel
             await Task.Delay(3000);
             SuccessPopUp = false;
             FailPopUp = false;
+        }
+
+        [RelayCommand]
+
+        void DeleteDriver(int s)
+        {
+            List<Driver> Items = App.DriverRepo.GetAllDrivers();
+
+            Items.ForEach(item =>
+            {
+                if (item.UserId == s)
+                {
+                    App.DriverRepo.DeleteDriver(s);
+                    return;
+                    
+                }
+            });
         }
 
         /*

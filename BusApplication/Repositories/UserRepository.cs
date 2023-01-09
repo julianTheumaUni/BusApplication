@@ -101,6 +101,5 @@ namespace BusApplication.Repositories
                 conn.Update(item);
             }
         }
-
     }
 }
