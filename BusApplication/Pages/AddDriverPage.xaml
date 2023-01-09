@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pages.AddDriverPage"
              Title="Add Driver"
              BackgroundColor ="White"
              xmlns:viewmodel="clr-namespace:BusApplication.ViewModel"
-             x:DataType="viewmodel:AddDriverViewModel"
-             >
+             x:DataType="viewmodel:AddDriverViewModel">
+
     <VerticalStackLayout>
-
-
 
         <Label Text="Date of Birth"   />
         <Entry x:Name="DateOfBirth" Placeholder="27/05/2002" Text="{Binding InputDateOfBirth}"/>

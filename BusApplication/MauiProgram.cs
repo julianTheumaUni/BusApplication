@@ -44,6 +44,8 @@ public static class MauiProgram
         builder.Services.AddTransient<FleetManagementPage>();
         builder.Services.AddTransient<FleetManagementViewModel>();
 
+        builder.Services.AddSingleton<AddBusUserPage>();
+
         builder.Services.AddSingleton<FindBusPage>();
 		builder.Services.AddSingleton<FindBusViewModel>();
 

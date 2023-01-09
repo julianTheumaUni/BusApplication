@@ -12,9 +12,6 @@
         <Label Text="Route Number"   />
         <Entry x:Name="routeNum" Placeholder="Enter Route Number" Keyboard="Numeric" />
 
-        <Label Text="Town Route" />
-        <Entry x:Name="routeTowns" Placeholder="Enter Town Route" Keyboard="Text" />
-
         <Label Text="Number of Stops" />
         <Entry x:Name="stopsNum" Placeholder="Enter Driver Phone Number" Keyboard="Numeric" />
 

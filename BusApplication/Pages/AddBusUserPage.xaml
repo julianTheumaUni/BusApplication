@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Pages.AddBusUserPage"
+             Title="Add Bus User"
+             BackgroundColor ="White"
+             xmlns:viewmodel="clr-namespace:BusApplication.ViewModel"
+             x:DataType="viewmodel:UserManagementViewModel">
+
+    <VerticalStackLayout>
+
+        <Label Text="User ID" />
+        <Entry x:Name="UserID" Placeholder="Enter User ID" Keyboard="Numeric" />
+
+        <Picker Title="Bus User Type">
+
+            <Picker.Items>
+                <x:String>Adult</x:String>
+                <x:String>Student</x:String>
+                <x:String>Child</x:String>
+                <x:String>Concession</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Button x:Name="submit" Text="Submit" Command="{Binding AddBusUserPageCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>
