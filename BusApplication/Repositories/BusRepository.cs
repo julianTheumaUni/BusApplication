@@ -31,7 +31,7 @@ namespace BusApplication.Repositories
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddBus(int BusID, int RouteNum, int DriverID, bool toStop, int stopID, int SeatsLeft, bool Accessibility)
+        public void AddBus(bool Accessibility, int Capacity, int RouteId)
         {
             Debug.WriteLine("Adding Bus...");
             try
@@ -40,19 +40,15 @@ namespace BusApplication.Repositories
 
                 Bus busToAdd = new Bus
                 {
-                    busId = BusID,
-                    routeNum = RouteNum,
-                    driverId = DriverID,
-                    stopRequest = toStop,
-                    currentStopId = stopID,
-                    maxSeats = SeatsLeft,
-                    accessibility = Accessibility,
-                    seatsLeft = 5,
-                    myRoute = 1,
+                    Accessibility = Accessibility,
+                    Capacity = Capacity,
+                    OccupiedSeats = 0,
+                    RouteId = RouteId,
+                    StopRequested = false
                 };
 
                 //busToAdd.setVariables();
-                Debug.WriteLine($"Bus Id: {busToAdd.busId}");
+                Debug.WriteLine($"Bus Id: {busToAdd.BusId}");
                 conn.Insert(busToAdd);
 
                 Debug.WriteLine("Successfully added a new Bus");
@@ -79,8 +75,9 @@ namespace BusApplication.Repositories
             }
         }
 
-        public Bus GetBusByID(int busIdIn)
-        {
+        //public Bus GetBusByID(int busIdIn)
+        //{
+            /*
             foreach (Bus bus in App.BusRepo.GetAllBuses())
             {
                 if (bus.busId == busIdIn)
@@ -90,6 +87,7 @@ namespace BusApplication.Repositories
             }
             Bus nullBus = new Bus { busId = 0, routeNum = 0, driverId = 0, stopRequest = false, currentStopId = 0, maxSeats = 0, accessibility = false };
             return nullBus;
-        }
+            */
+        //}
     }
 }

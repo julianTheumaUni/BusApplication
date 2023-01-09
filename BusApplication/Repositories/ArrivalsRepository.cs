@@ -31,31 +31,24 @@ namespace BusApplication.Repositories
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddBus(int BusID, int RouteNum, int DriverID, bool toStop, int stopID, int SeatsLeft, bool Accessibility)
+        public void AddArrival(int BusId, int BusStopId, DateTime ExpectedArrival, DateTime ScheduledArrival)
         {
             Debug.WriteLine("Adding Bus...");
             try
             {
                 Init();
 
-                Bus busToAdd = new Bus
+                Arrivals arrivalsToAdd = new Arrivals
                 {
-                    busId = BusID,
-                    routeNum = RouteNum,
-                    driverId = DriverID,
-                    stopRequest = toStop,
-                    currentStopId = stopID,
-                    maxSeats = SeatsLeft,
-                    accessibility = Accessibility,
-                    seatsLeft = 5,
-                    myRoute = 1,
+                    BusId = BusId,
+                    BusStopId = BusStopId,
+                    ExpectedArrival = ExpectedArrival,
+                    ScheduledArrival = ScheduledArrival
                 };
 
-                //busToAdd.setVariables();
-                Debug.WriteLine($"Bus Id: {busToAdd.busId}");
-                conn.Insert(busToAdd);
+                conn.Insert(arrivalsToAdd);
 
-                Debug.WriteLine("Successfully added a new Bus");
+                Debug.WriteLine($"Successfully added arrival for bus ID: {arrivalsToAdd.BusId}");
             }
             catch (Exception ex){
                 Debug.WriteLine(ex.ToString());
@@ -78,7 +71,7 @@ namespace BusApplication.Repositories
                 return new List<Bus>();
             }
         }
-
+        /*
         public Bus GetBusByID(int busIdIn)
         {
             foreach (Bus bus in App.BusRepo.GetAllBuses())
@@ -91,5 +84,6 @@ namespace BusApplication.Repositories
             Bus nullBus = new Bus { busId = 0, routeNum = 0, driverId = 0, stopRequest = false, currentStopId = 0, maxSeats = 0, accessibility = false };
             return nullBus;
         }
+        */
     }
 }

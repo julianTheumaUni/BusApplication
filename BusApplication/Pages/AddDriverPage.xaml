@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pages.AddDriverPage"
              Title="Add Driver"
-             BackgroundColor ="White">
+             BackgroundColor ="White"
+             xmlns:viewmodel="clr-namespace:BusApplication.ViewModel"
+             x:DataType="viewmodel:DriverManagementViewModel"
+             >
     <VerticalStackLayout>
 
         <Label Text="Driver ID" />
@@ -24,6 +27,6 @@
         <Label Text="Bus Number" />
         <Entry x:Name="BusNumber" Placeholder="Enter Driver's Bus Number" Keyboard="Numeric" />
 
-        <Button x:Name="submit" Text="Submit" />
+        <Button x:Name="submit" Text="Submit" Command="{Binding AddCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

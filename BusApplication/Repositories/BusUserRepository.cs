@@ -23,7 +23,7 @@ namespace BusApplication.Repositories
             }
 
             conn = new SQLiteConnection(_dbPathBuses);
-            conn.CreateTable<Bus>();
+            conn.CreateTable<BusUser>();
         }
 
         public BusUserRepository(string dbPathBuses)
@@ -31,29 +31,22 @@ namespace BusApplication.Repositories
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddBus(int BusID, int RouteNum, int DriverID, bool toStop, int stopID, int SeatsLeft, bool Accessibility)
+        public void AddBusUser(Types _userType, int _userId)
         {
-            Debug.WriteLine("Adding Bus...");
+            Debug.WriteLine("Adding Bus User...");
             try
             {
                 Init();
 
-                Bus busToAdd = new Bus
+                BusUser busUserToAdd = new BusUser
                 {
-                    busId = BusID,
-                    routeNum = RouteNum,
-                    driverId = DriverID,
-                    stopRequest = toStop,
-                    currentStopId = stopID,
-                    maxSeats = SeatsLeft,
-                    accessibility = Accessibility,
-                    seatsLeft = 5,
-                    myRoute = 1,
+                    Type = _userType,
+                    UserId = _userId
                 };
 
                 //busToAdd.setVariables();
-                Debug.WriteLine($"Bus Id: {busToAdd.busId}");
-                conn.Insert(busToAdd);
+                Debug.WriteLine($"Bus User Id: {busUserToAdd.UserId}");
+                conn.Insert(busUserToAdd);
 
                 Debug.WriteLine("Successfully added a new Bus");
             }
@@ -62,34 +55,5 @@ namespace BusApplication.Repositories
             }
         }
 
-        public List<Bus> GetAllBuses()
-        {
-            try
-            {
-                Init();
-                List<Bus> list = conn.Table<Bus>().ToList();
-                Debug.WriteLine($"{list.Count}Buses");
-                return conn.Table<Bus>().ToList();
-            }
-
-            catch
-            {
-                Console.WriteLine("Error getting all buses");
-                return new List<Bus>();
-            }
-        }
-
-        public Bus GetBusByID(int busIdIn)
-        {
-            foreach (Bus bus in App.BusRepo.GetAllBuses())
-            {
-                if (bus.busId == busIdIn)
-                {
-                    return bus;
-                }
-            }
-            Bus nullBus = new Bus { busId = 0, routeNum = 0, driverId = 0, stopRequest = false, currentStopId = 0, maxSeats = 0, accessibility = false };
-            return nullBus;
-        }
     }
 }

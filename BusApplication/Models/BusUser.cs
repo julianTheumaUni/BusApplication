@@ -13,8 +13,6 @@ namespace BusApplication.Models
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
         public Types Type { get; set; }
-        public int[] BusLogs { get; set; }
-        public int[] Payments { get; set; }
     }
 
     public enum Types

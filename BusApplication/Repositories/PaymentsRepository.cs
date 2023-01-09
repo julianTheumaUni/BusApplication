@@ -31,31 +31,25 @@ namespace BusApplication.Repositories
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddBus(int BusID, int RouteNum, int DriverID, bool toStop, int stopID, int SeatsLeft, bool Accessibility)
+        public void AddPayment()
         {
-            Debug.WriteLine("Adding Bus...");
+            Debug.WriteLine("Adding Payment...");
             try
             {
                 Init();
 
-                Bus busToAdd = new Bus
+                Payments paymentsToAdd = new Payments
                 {
-                    busId = BusID,
-                    routeNum = RouteNum,
-                    driverId = DriverID,
-                    stopRequest = toStop,
-                    currentStopId = stopID,
-                    maxSeats = SeatsLeft,
-                    accessibility = Accessibility,
-                    seatsLeft = 5,
-                    myRoute = 1,
+                    HasPaid = false,
+                    UserId = 1,
+                    BusId = 1,
                 };
 
                 //busToAdd.setVariables();
-                Debug.WriteLine($"Bus Id: {busToAdd.busId}");
-                conn.Insert(busToAdd);
+                Debug.WriteLine($"Bus Id: {paymentsToAdd.PaymentId}");
+                conn.Insert(paymentsToAdd);
 
-                Debug.WriteLine("Successfully added a new Bus");
+                Debug.WriteLine("Successfully added a new Payment");
             }
             catch (Exception ex){
                 Debug.WriteLine(ex.ToString());
@@ -79,17 +73,5 @@ namespace BusApplication.Repositories
             }
         }
 
-        public Bus GetBusByID(int busIdIn)
-        {
-            foreach (Bus bus in App.BusRepo.GetAllBuses())
-            {
-                if (bus.busId == busIdIn)
-                {
-                    return bus;
-                }
-            }
-            Bus nullBus = new Bus { busId = 0, routeNum = 0, driverId = 0, stopRequest = false, currentStopId = 0, maxSeats = 0, accessibility = false };
-            return nullBus;
-        }
     }
 }

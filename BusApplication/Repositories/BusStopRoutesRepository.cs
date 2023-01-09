@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusApplication.Repositories
 {
-    public class BusStopRepository
+    public class BusStopRoutesRepository
     {
         string _dbPathBuses;
 
@@ -26,36 +26,29 @@ namespace BusApplication.Repositories
             conn.CreateTable<Bus>();
         }
 
-        public BusStopRepository(string dbPathBuses)
+        public BusStopRoutesRepository(string dbPathBuses)
         {
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddBus(int BusID, int RouteNum, int DriverID, bool toStop, int stopID, int SeatsLeft, bool Accessibility)
+        public void AddBusStopRoute(int RouteID, int BusStopId)
         {
-            Debug.WriteLine("Adding Bus...");
+            Debug.WriteLine("Adding Bus Stop Route...");
             try
             {
                 Init();
 
-                Bus busToAdd = new Bus
+                BusStopRoutes busStopRoutesToAdd = new BusStopRoutes
                 {
-                    busId = BusID,
-                    routeNum = RouteNum,
-                    driverId = DriverID,
-                    stopRequest = toStop,
-                    currentStopId = stopID,
-                    maxSeats = SeatsLeft,
-                    accessibility = Accessibility,
-                    seatsLeft = 5,
-                    myRoute = 1,
+                    BusRouteId = RouteID,
+                    BusStopId = BusStopId
                 };
 
                 //busToAdd.setVariables();
-                Debug.WriteLine($"Bus Id: {busToAdd.busId}");
-                conn.Insert(busToAdd);
+                Debug.WriteLine($"Bus Stop Route Id: {busStopRoutesToAdd.BusStopRouteId}");
+                conn.Insert(busStopRoutesToAdd);
 
-                Debug.WriteLine("Successfully added a new Bus");
+                Debug.WriteLine("Successfully added a new Bus Stop Route");
             }
             catch (Exception ex){
                 Debug.WriteLine(ex.ToString());
@@ -79,17 +72,5 @@ namespace BusApplication.Repositories
             }
         }
 
-        public Bus GetBusByID(int busIdIn)
-        {
-            foreach (Bus bus in App.BusRepo.GetAllBuses())
-            {
-                if (bus.busId == busIdIn)
-                {
-                    return bus;
-                }
-            }
-            Bus nullBus = new Bus { busId = 0, routeNum = 0, driverId = 0, stopRequest = false, currentStopId = 0, maxSeats = 0, accessibility = false };
-            return nullBus;
-        }
     }
 }

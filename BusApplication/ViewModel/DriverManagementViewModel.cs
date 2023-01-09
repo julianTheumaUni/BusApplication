@@ -22,8 +22,9 @@ namespace BusApplication.ViewModel
         void Add()
         {
             Debug.WriteLine("Adding from View Model");
-            App.DriverRepo.AddDriver(new DateTime(DateTime.Now.Year), "24, Triq il-Kbira, Mosta", "21212121", "John");
-            App.DriverRepo.GetAllDrivers().ForEach(driver => { Debug.WriteLine(driver.UserId); });
+            App.UserRepo.AddUser(UserType.BusDriver);
+            //get this added user's id and place below. TODO
+            App.DriverRepo.AddDriver(DateTime.Now, "22, Triq il-Kbira, Mosta", "99999999", 3);
         }
 
         /*
