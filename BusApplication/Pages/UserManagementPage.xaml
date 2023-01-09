@@ -48,5 +48,6 @@
                 Command="{Binding NavigateToEditStatus}"/>
 
 
+            <Button Text="Add User" Command="{Binding AddBusUserPageCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

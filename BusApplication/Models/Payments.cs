@@ -12,7 +12,10 @@ namespace BusApplication.Models
     {
         [PrimaryKey, AutoIncrement]
         public int PaymentId { get; set; }
+        [ForeignKey(nameof(BusUser))]
+        public int UserId { get; set; }
         public bool HasPaid { get; set; }
+        [ForeignKey(nameof(Bus))]
         public int BusId { get; set; }
 
     }

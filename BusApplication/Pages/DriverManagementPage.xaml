@@ -26,7 +26,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="ADD USER"
+        <Button Text="ADD DRIVER"
                 BackgroundColor="#2F329F"
                 TextColor="#FFFFFF"
                 FontSize="20"
@@ -36,7 +36,7 @@
                 HorizontalOptions="Fill" 
                 Command="{Binding NavigateToAddDriverPageCommand}"/>
 
-        <Button Text="VIEW USER" 
+        <Button Text="VIEW DRIVER" 
                 BackgroundColor="#2F329F"
                 TextColor="#FFFFFF"
                 FontSize="20"
@@ -46,7 +46,7 @@
                 HorizontalOptions="Fill"  
                 Command="{Binding NavigateToViewDriverPageCommand}"/>
 
-        <Button Text="UPDATE USER" 
+        <Button Text="UPDATE DRIVER" 
                 BackgroundColor="#2F329F"
                 TextColor="#FFFFFF"
                 FontSize="20"
@@ -56,7 +56,7 @@
                 HorizontalOptions="Fill" 
                 Command="{Binding NavigateToUpdateDriverPageCommand}"/>
 
-        <Button Text="DELETE USER" 
+        <Button Text="DELETE DRIVER" 
                 BackgroundColor="#2F329F"
                 TextColor="#FFFFFF"
                 FontSize="20"

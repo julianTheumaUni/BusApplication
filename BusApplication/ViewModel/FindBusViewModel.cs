@@ -57,9 +57,9 @@ namespace BusApplication.ViewModel
         void AddBus()
         {
             Debug.WriteLine("Adding from View Model");
-            App.RouteRepo.AddRoute(1, "Marsaskala");
-            App.BusRepo.AddBus(999, 67, 6969, false, 1, 20, true);
-            App.BusRepo.GetAllBuses().ForEach(bus => { Debug.WriteLine(bus.busId); });
+            App.RouteRepo.AddRoute("Marsaskala", "Sliema");
+            App.BusRepo.AddBus(true, 50, 1);
+            App.BusRepo.GetAllBuses().ForEach(bus => { Debug.WriteLine(bus.BusId); });
 	    busList = App.BusRepo.GetAllBuses();
         }
 
@@ -67,7 +67,7 @@ namespace BusApplication.ViewModel
         void GetAllBuses()
         {
             List<Bus> buses = App.BusRepo.GetAllBuses();
-            buses.ForEach(bus => { Debug.WriteLine(bus.busId); });
+            buses.ForEach(bus => { Debug.WriteLine(bus.BusId); });
         }
 
 	public List<Bus> GetBuses()
@@ -81,7 +81,7 @@ namespace BusApplication.ViewModel
             List<BusCollectionView> busCollection = new List<BusCollectionView>();
             buses.ForEach(bus =>
             {
-                int busNumber = bus.busId;
+                int busNumber = bus.BusId;
                 BusCollectionViewItems.Add(new BusCollectionView { busId = busNumber});
             });
         }

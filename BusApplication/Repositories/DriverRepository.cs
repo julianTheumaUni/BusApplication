@@ -30,9 +30,27 @@ namespace BusApplication.Repositories
         {
             _dbPath = dbPath;
         }
-
-        public void AddDriver(DateTime dateOfBirth, string address, string phoneNumber, string name)
+        
+        public void AddDriver(DateTime dateOfBirth, string address, string phoneNumber, int userId)
         {
+            Debug.WriteLine("Adding Driver...");
+            try
+            {
+                Init();
+                Driver driverToAdd = new Driver
+                {
+                    DateOfBirth = dateOfBirth,
+                    Address = address,
+                    MobileNumber = phoneNumber,
+                    UserId = userId
+                };
+
+                conn.Insert(driverToAdd);
+                Debug.WriteLine("Successfully added driver");
+            }
+            catch (Exception ex) {
+                Debug.WriteLine(ex.ToString());
+            }
             /*
             Debug.WriteLine("Adding Driver...");
             try

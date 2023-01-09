@@ -27,7 +27,7 @@ namespace BusApplication.ViewModel
         void AddRoute()
         {
             Debug.WriteLine("Adding from View Model");
-            App.RouteRepo.AddRoute(21, "Mushroom Kingdom");
+            App.RouteRepo.AddRoute("Marsaskala", "Sliema");
             //App.RouteRepo.GetAllRoutes().ForEach(route => { Debug.WriteLine(route.routeNum); });
 	          routeList = App.RouteRepo.GetAllRoutes();
         }

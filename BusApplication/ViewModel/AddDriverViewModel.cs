@@ -6,25 +6,68 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BusApplication.ViewModel
 {
-    public partial class DriverManagementViewModel : ObservableObject
+    public partial class AddDriverViewModel : ObservableObject
     {
+        public AddDriverViewModel()
+        {
+            InputDateOfBirth = String.Empty;
+            InputAddress = String.Empty;
+            InputPhoneNumber = String.Empty;
+            SuccessPopUp= false;
+            FailPopUp = false;
+        }
 
-        public ObservableCollection<DriverCollectionView> DriversCollectionViewItems { get; set; }
+        [ObservableProperty]
+        string inputDateOfBirth;
+        [ObservableProperty]
+        string inputAddress;
+        [ObservableProperty]
+        string inputPhoneNumber;
 
+        [ObservableProperty]
+        bool successPopUp = false;
+        [ObservableProperty]
+        bool failPopUp = false;
 
         [RelayCommand]
         void Add()
         {
-            Debug.WriteLine("Adding from View Model");
-            App.UserRepo.AddUser(UserType.BusDriver);
+            DateTime dob = ConvertStringToDateTime(InputDateOfBirth);
+            int newUserId = App.UserRepo.AddUser(UserType.BusDriver);
             //get this added user's id and place below. TODO
-            App.DriverRepo.AddDriver(DateTime.Now, "22, Triq il-Kbira, Mosta", "99999999", 3);
+            Debug.WriteLine(newUserId);
+            App.DriverRepo.AddDriver(dob, InputAddress, InputPhoneNumber, newUserId);
+
+            if(newUserId >= 0)
+            {
+                SuccessPopUp = true;
+                FailPopUp = false;
+            }
+            else
+            {
+                SuccessPopUp = false;
+                FailPopUp = true;
+            }
+            ResetPopUps();
+        }
+
+        public DateTime ConvertStringToDateTime(string dateString)
+        {
+            return DateTime.ParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        }
+
+        private async void ResetPopUps()
+        {
+            await Task.Delay(3000);
+            SuccessPopUp = false;
+            FailPopUp = false;
         }
 
         /*
@@ -85,20 +128,15 @@ namespace BusApplication.ViewModel
             await Shell.Current.GoToAsync(nameof(DeleteDriverPage));
         }
     }
+    //[RelayCommand]
+    //void Update()
+    // {
 
-   // [RelayCommand]
+    //   }
+    //  [RelayCommand]
+    // void Delete()
+    // {
 
-   // void Delete(String s)
-    //{
-    //    if (Items.Contains(s))
-  //      {
-   //         Items.Remove(s);
-  //      }
-  //  }
+    //   }
 
-    public class DriverCollectionView
-    {
-        public string Name { get; set; }
-        public int BusNumber { get; set; }
-    }
 }

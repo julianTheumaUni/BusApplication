@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusApplication.Repositories
 {
-    public class BusRepository
+    public class BusStopRoutesRepository
     {
         string _dbPathBuses;
 
@@ -26,32 +26,29 @@ namespace BusApplication.Repositories
             conn.CreateTable<Bus>();
         }
 
-        public BusRepository(string dbPathBuses)
+        public BusStopRoutesRepository(string dbPathBuses)
         {
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddBus(bool Accessibility, int Capacity, int RouteId)
+        public void AddBusStopRoute(int RouteID, int BusStopId)
         {
-            Debug.WriteLine("Adding Bus...");
+            Debug.WriteLine("Adding Bus Stop Route...");
             try
             {
                 Init();
 
-                Bus busToAdd = new Bus
+                BusStopRoutes busStopRoutesToAdd = new BusStopRoutes
                 {
-                    Accessibility = Accessibility,
-                    Capacity = Capacity,
-                    OccupiedSeats = 0,
-                    RouteId = RouteId,
-                    StopRequested = false
+                    BusRouteId = RouteID,
+                    BusStopId = BusStopId
                 };
 
                 //busToAdd.setVariables();
-                Debug.WriteLine($"Bus Id: {busToAdd.BusId}");
-                conn.Insert(busToAdd);
+                Debug.WriteLine($"Bus Stop Route Id: {busStopRoutesToAdd.BusStopRouteId}");
+                conn.Insert(busStopRoutesToAdd);
 
-                Debug.WriteLine("Successfully added a new Bus");
+                Debug.WriteLine("Successfully added a new Bus Stop Route");
             }
             catch (Exception ex){
                 Debug.WriteLine(ex.ToString());
@@ -75,19 +72,5 @@ namespace BusApplication.Repositories
             }
         }
 
-        //public Bus GetBusByID(int busIdIn)
-        //{
-            /*
-            foreach (Bus bus in App.BusRepo.GetAllBuses())
-            {
-                if (bus.busId == busIdIn)
-                {
-                    return bus;
-                }
-            }
-            Bus nullBus = new Bus { busId = 0, routeNum = 0, driverId = 0, stopRequest = false, currentStopId = 0, maxSeats = 0, accessibility = false };
-            return nullBus;
-            */
-        //}
     }
 }

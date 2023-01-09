@@ -12,8 +12,13 @@ namespace BusApplication.Models
     {
         [PrimaryKey, AutoIncrement]
         public int BusLogId { get; set; }
+        
+        [ForeignKey(nameof(BusUser))]
+        public int UserId { get; set; }
+
         [ForeignKey(nameof(Bus))]
         public int BusId { get; set; }
+        
         public DateTime TimeEntered { get; set; }
     }
 

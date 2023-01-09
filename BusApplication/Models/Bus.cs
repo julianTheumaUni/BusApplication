@@ -11,23 +11,25 @@ namespace BusApplication.Models
     public class Bus
     {
         [PrimaryKey, AutoIncrement]
-        public int busId { get; set; }
-        public int routeNum { get; set; }
-        [ForeignKey(nameof(Driver))]
-        public int driverId { get; set; }
-        public bool stopRequest { get; set; }
-        [ForeignKey(nameof(BusStop))]
-        public int currentStopId { get; set; }
-        public int maxSeats { get; set; }
-        public int seatsLeft { get; set; }
-        public bool accessibility { get; set; }
+        public int BusId { get; set; }
+
         [ForeignKey(nameof(Route))]
-        public int myRoute { get; set; }
+        public int RouteId { get; set; }
+
+        [ForeignKey(nameof(Driver))]
+        public int? DriverId { get; set; }
+        public bool Accessibility { get; set; }
+        public bool StopRequested { get; set; }
+
+        [ForeignKey(nameof(BusStop))]
+        public int? CurrentBusStopId { get; set; }
+        public int Capacity { get; set; }
+        public int OccupiedSeats { get; set; }
         
 
         public void setVariables()
         {
-            seatsLeft = maxSeats;
+        //    seatsLeft = maxSeats;
             //myRoute = App.RouteRepo.GetRouteByID(routeNum);
             //myDriver = App.DriverRepo.GetDriverByID(driverId);
         }

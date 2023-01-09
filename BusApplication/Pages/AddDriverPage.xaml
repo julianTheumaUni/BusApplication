@@ -1,29 +1,32 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Pages.AddDriverPage"
              Title="Add Driver"
-             BackgroundColor ="White">
+             BackgroundColor ="White"
+             xmlns:viewmodel="clr-namespace:BusApplication.ViewModel"
+             x:DataType="viewmodel:AddDriverViewModel">
+
     <VerticalStackLayout>
 
-        <Label Text="Driver ID" />
-        <Entry x:Name="DriverID" Placeholder="Enter Driver ID" Keyboard="Numeric" />
-
-        <Label Text="Date of Birth"   />
-        <Entry x:Name="DateOfBirth" Placeholder="Enter Date of Birth" Keyboard="Numeric" />
-
+        <Label Text="Date of Birth"/>
+        <Entry x:Name="DateOfBirth" Placeholder="E.g. 27/05/2002" Text="{Binding InputDateOfBirth}"/>
         <Label Text="Name" />
         <Entry x:Name="Name" Placeholder="Enter Driver Name" Keyboard="Text" />
 
         <Label Text="Phone Number" />
-        <Entry x:Name="PhoneNumber" Placeholder="Enter Driver Phone Number" Keyboard="Numeric" />
+        <Entry x:Name="PhoneNumber" Placeholder="Enter Driver Phone Number" Keyboard="Numeric" Text="{Binding InputPhoneNumber}"/>
 
         <Label Text="Address" />
-        <Entry x:Name="Address" Placeholder="Enter Driver Address" Keyboard="Text" />
+        <Entry x:Name="Address" Placeholder="Enter Driver Address" Keyboard="Text" Text="{Binding InputAddress}" />
 
-        <Label Text="Bus Number" />
-        <Entry x:Name="BusNumber" Placeholder="Enter Driver's Bus Number" Keyboard="Numeric" />
+        <Button x:Name="submit" Text="Submit" Command="{Binding AddCommand}"/>
 
-        <Button x:Name="submit" Text="Submit" />
+        <Frame BackgroundColor="#60E85D" IsVisible="{Binding SuccessPopUp}">
+            <Label Text="Successfully Added A Driver!"/>
+        </Frame>
+        <Frame BackgroundColor= "Red" IsVisible="{Binding FailPopUp}">
+            <Label Text="Failed to add driver, please try again..."/>
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>

@@ -31,7 +31,7 @@ namespace BusApplication.Repositories
             _dbPathRoutes = dbPathRoutes;
         }
 
-        public void AddRoute(int routeNumber, string routeTownName)
+        public void AddRoute(string StartLocation, string EndLocation)
         {
             Debug.WriteLine("Adding Route...");
             try
@@ -40,14 +40,14 @@ namespace BusApplication.Repositories
 
                 conn.Insert(new Route
                 {
-//                    routeNum = routeNumber,
-//                    routeTown = routeTownName
+                    StartLocation = StartLocation,
+                    EndLocation = EndLocation
                 });
 
-                Debug.WriteLine("Successfully added a new Route");
+                Debug.WriteLine($"Successfully added a new Route {StartLocation} to {EndLocation}");
             }
-            catch {
-                Debug.WriteLine("Error in adding Route");
+            catch (Exception ex) {
+                Debug.WriteLine(ex.ToString());
             }
         }
 

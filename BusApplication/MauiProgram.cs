@@ -20,11 +20,17 @@ public static class MauiProgram
 		string dbPath = FileAccessHelper.GetLocalFilePath("people.db3");
         builder.Services.AddSingleton<DriverRepository>(s => ActivatorUtilities.CreateInstance<DriverRepository>(s, dbPath));
 
-		string dbPathBuses = FileAccessHelper.GetLocalFilePath("buses.db3");
-        builder.Services.AddSingleton<BusRepository>(s => ActivatorUtilities.CreateInstance<BusRepository>(s, dbPathBuses));
+        builder.Services.AddSingleton<BusRepository>(s => ActivatorUtilities.CreateInstance<BusRepository>(s, dbPath));
 		
-		string dbPathRoutes = FileAccessHelper.GetLocalFilePath("routes.db3");
-        builder.Services.AddSingleton<RouteRepository>(s => ActivatorUtilities.CreateInstance<RouteRepository>(s, dbPathRoutes));
+        builder.Services.AddSingleton<RouteRepository>(s => ActivatorUtilities.CreateInstance<RouteRepository>(s, dbPath));
+        builder.Services.AddSingleton<UserRepository>(s => ActivatorUtilities.CreateInstance<UserRepository>(s, dbPath));
+        builder.Services.AddSingleton<PaymentsRepository>(s => ActivatorUtilities.CreateInstance<PaymentsRepository>(s, dbPath));
+        builder.Services.AddSingleton<BusUserRepository>(s => ActivatorUtilities.CreateInstance<BusUserRepository>(s, dbPath));
+        builder.Services.AddSingleton<BusStopRepository>(s => ActivatorUtilities.CreateInstance<BusStopRepository>(s, dbPath));
+        builder.Services.AddSingleton<BusLogsRepository>(s => ActivatorUtilities.CreateInstance<BusLogsRepository>(s, dbPath));
+        builder.Services.AddSingleton<BusStopRoutesRepository>(s => ActivatorUtilities.CreateInstance<BusStopRoutesRepository>(s, dbPath));
+        builder.Services.AddSingleton<ArrivalsRepository>(s => ActivatorUtilities.CreateInstance<ArrivalsRepository>(s, dbPath));
+
 
         builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<MainViewModel>();
@@ -37,6 +43,8 @@ public static class MauiProgram
 
         builder.Services.AddTransient<FleetManagementPage>();
         builder.Services.AddTransient<FleetManagementViewModel>();
+
+        builder.Services.AddSingleton<AddBusUserPage>();
 
         builder.Services.AddSingleton<FindBusPage>();
 		builder.Services.AddSingleton<FindBusViewModel>();

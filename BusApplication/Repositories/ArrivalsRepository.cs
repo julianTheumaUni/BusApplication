@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusApplication.Repositories
 {
-    public class BusRepository
+    public class ArrivalsRepository
     {
         string _dbPathBuses;
 
@@ -26,32 +26,29 @@ namespace BusApplication.Repositories
             conn.CreateTable<Bus>();
         }
 
-        public BusRepository(string dbPathBuses)
+        public ArrivalsRepository(string dbPathBuses)
         {
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddBus(bool Accessibility, int Capacity, int RouteId)
+        public void AddArrival(int BusId, int BusStopId, DateTime ExpectedArrival, DateTime ScheduledArrival)
         {
             Debug.WriteLine("Adding Bus...");
             try
             {
                 Init();
 
-                Bus busToAdd = new Bus
+                Arrivals arrivalsToAdd = new Arrivals
                 {
-                    Accessibility = Accessibility,
-                    Capacity = Capacity,
-                    OccupiedSeats = 0,
-                    RouteId = RouteId,
-                    StopRequested = false
+                    BusId = BusId,
+                    BusStopId = BusStopId,
+                    ExpectedArrival = ExpectedArrival,
+                    ScheduledArrival = ScheduledArrival
                 };
 
-                //busToAdd.setVariables();
-                Debug.WriteLine($"Bus Id: {busToAdd.BusId}");
-                conn.Insert(busToAdd);
+                conn.Insert(arrivalsToAdd);
 
-                Debug.WriteLine("Successfully added a new Bus");
+                Debug.WriteLine($"Successfully added arrival for bus ID: {arrivalsToAdd.BusId}");
             }
             catch (Exception ex){
                 Debug.WriteLine(ex.ToString());
@@ -74,10 +71,9 @@ namespace BusApplication.Repositories
                 return new List<Bus>();
             }
         }
-
-        //public Bus GetBusByID(int busIdIn)
-        //{
-            /*
+        /*
+        public Bus GetBusByID(int busIdIn)
+        {
             foreach (Bus bus in App.BusRepo.GetAllBuses())
             {
                 if (bus.busId == busIdIn)
@@ -87,7 +83,7 @@ namespace BusApplication.Repositories
             }
             Bus nullBus = new Bus { busId = 0, routeNum = 0, driverId = 0, stopRequest = false, currentStopId = 0, maxSeats = 0, accessibility = false };
             return nullBus;
-            */
-        //}
+        }
+        */
     }
 }
