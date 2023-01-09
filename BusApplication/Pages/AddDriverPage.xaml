@@ -9,8 +9,8 @@
 
     <VerticalStackLayout>
 
-        <Label Text="Date of Birth"   />
-        <Entry x:Name="DateOfBirth" Placeholder="27/05/2002" Text="{Binding InputDateOfBirth}"/>
+        <Label Text="Date of Birth"/>
+        <Entry x:Name="DateOfBirth" Placeholder="E.g. 27/05/2002" Text="{Binding InputDateOfBirth}"/>
         <Label Text="Name" />
         <Entry x:Name="Name" Placeholder="Enter Driver Name" Keyboard="Text" />
 
@@ -25,7 +25,7 @@
         <Frame BackgroundColor="#60E85D" IsVisible="{Binding SuccessPopUp}">
             <Label Text="Successfully Added A Driver!"/>
         </Frame>
-        <Frame BackgroundColor="#FFA36F" IsVisible="{Binding FailPopUp}">
+        <Frame BackgroundColor= "Red" IsVisible="{Binding FailPopUp}">
             <Label Text="Failed to add driver, please try again..."/>
         </Frame>
     </VerticalStackLayout>

@@ -85,16 +85,16 @@ namespace BusApplication.ViewModel
             await Shell.Current.GoToAsync(nameof(DeleteDriverPage));
         }
     }
-    //[RelayCommand]
-    //void Update()
-    // {
 
-    //   }
-    //  [RelayCommand]
-    // void Delete()
-    // {
+   // [RelayCommand]
 
-    //   }
+   // void Delete(String s)
+    //{
+    //    if (Items.Contains(s))
+  //      {
+   //         Items.Remove(s);
+  //      }
+  //  }
 
     public class DriverCollectionView
     {
