@@ -7,9 +7,46 @@
              x:DataType="viewmodel:UserManagementViewModel">
 
     <VerticalStackLayout>
-    <Label 
-            Text="Hello"
+        <Label 
+            Text="Welcome, Admin!"
+            Margin="40,30,40,0"
+            TextColor="#2F329F"
+            FontSize="40"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <CollectionView x:Name="DriversCollectionView" ItemsSource="{Binding DriversCollectionViewItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Padding="10">
+                        <Image Source="" HeightRequest="100" WidthRequest="100" Aspect="AspectFill"/>
+                        <VerticalStackLayout Padding="10" Spacing="4" VerticalOptions="Center">
+                            <Label Text="" />
+                            <Label Text="" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="EDIT USER TYPE"
+                BackgroundColor="#2F329F"
+                TextColor="#FFFFFF"
+                FontSize="25"
+                FontAttributes="Bold"
+                Margin="40,70,40,0"
+                HeightRequest="90"
+                HorizontalOptions="Fill" 
+                Command="{Binding NavigateToEditType}"/>
+
+        <Button Text="EDIT PAYMENT STATUS" 
+                BackgroundColor="#2F329F"
+                TextColor="#FFFFFF"
+                FontSize="25"
+                FontAttributes="Bold"
+                Margin="40,50,40,0"
+                HeightRequest="90"
+                HorizontalOptions="Fill"  
+                Command="{Binding NavigateToEditStatus}"/>
+
+
     </VerticalStackLayout>
 </ContentPage>
