@@ -46,17 +46,20 @@ namespace BusApplication.Repositories
                     stopRequest = toStop,
                     currentStopId = stopID,
                     maxSeats = SeatsLeft,
-                    accessibility = Accessibility
+                    accessibility = Accessibility,
+                    seatsLeft = 5,
+                    myRoute = 1,
+                    myDriver = 225
                 };
 
-                busToAdd.setVariables();
-
+                //busToAdd.setVariables();
+                Debug.WriteLine($"Bus Id: {busToAdd.busId}");
                 conn.Insert(busToAdd);
 
                 Debug.WriteLine("Successfully added a new Bus");
             }
-            catch {
-                Debug.WriteLine("Error in adding Bus");
+            catch (Exception ex){
+                Debug.WriteLine(ex.ToString());
             }
         }
 

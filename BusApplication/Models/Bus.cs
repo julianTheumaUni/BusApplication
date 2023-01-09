@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,15 +19,15 @@ namespace BusApplication.Models
         public int maxSeats { get; set; }
         public int seatsLeft { get; set; }
         public bool accessibility { get; set; }
-
-        public Route myRoute { get; set; }
-        public Driver myDriver { get; set; }
+        [ForeignKey(nameof(Route))]
+        public int myRoute { get; set; }
+        public int myDriver { get; set; }
 
         public void setVariables()
         {
             seatsLeft = maxSeats;
-            myRoute = App.RouteRepo.GetRouteByID(routeNum);
-            myDriver = App.DriverRepo.GetDriverByID(driverId);
+            //myRoute = App.RouteRepo.GetRouteByID(routeNum);
+            //myDriver = App.DriverRepo.GetDriverByID(driverId);
         }
     }
 }

@@ -4,6 +4,8 @@
              x:Class="BusApplication.FindBusPage"
              Title="Available Buses"
              xmlns:viewmodel="clr-namespace:BusApplication.ViewModel"
+             xmlns:models="clr-namespace:BusApplication.Models"
+             x:DataType="viewmodel:FindBusViewModel"
              BackgroundColor="#B9B9B9"
              >
     <StackLayout>
@@ -70,9 +72,9 @@
 
         <ScrollView Orientation="Vertical" HeightRequest="420">
 
-            <CollectionView ItemsSource="{Binding busList}">
+            <CollectionView ItemsSource="{Binding BusList}">
                 <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="models:Bus">
                     <Frame Margin="0,0,0,5" HasShadow="True">
                         <VerticalStackLayout>
                             <Grid>
@@ -86,13 +88,13 @@
                                         CornerRadius="70"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center">
-                                <Label Text="{Binding routeNum}"
+                                <Label Text="{Binding busId}"
                                     TextColor="White"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center" />
                                 </Frame>
                                 <VerticalStackLayout Grid.Column="1">
-                                <Label Text="{Binding myRoute.routeTown}" FontAttributes="Bold"/>
+                                <Label Text="{Binding busId}" FontAttributes="Bold"/>
                                 <Label Text="17:00" TextColor="Gray" FontAttributes="Bold"/>
                             </VerticalStackLayout>
                         </Grid>
@@ -100,7 +102,7 @@
                                 <VerticalStackLayout>
                                     <HorizontalStackLayout Margin="0,0,0,4">
                                         <Image HeightRequest="20" WidthRequest="20" Source="stop_sign_icon" Margin="0,0,5,0"/>
-                                        <Label Text="{Binding myRoute.routeTown}" />
+                                        <Label Text="{Binding busId}" />
 					<Label Text=" Bus Stops" />
                                     </HorizontalStackLayout>
                                     <HorizontalStackLayout Margin="0,0,0,4">

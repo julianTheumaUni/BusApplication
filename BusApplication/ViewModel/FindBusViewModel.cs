@@ -14,6 +14,7 @@ namespace BusApplication.ViewModel
 {
     public partial class FindBusViewModel : ObservableObject
     {
+        [ObservableProperty]
         public List<Bus> busList;
 
         public FindBusViewModel()
@@ -52,16 +53,17 @@ namespace BusApplication.ViewModel
 
         public ObservableCollection<BusCollectionView> BusCollectionViewItems { get; set; }
 
-	[RelayCommand]
+	    [RelayCommand]
         void AddBus()
         {
             Debug.WriteLine("Adding from View Model");
+            App.RouteRepo.AddRoute(1, "Marsaskala");
             App.BusRepo.AddBus(999, 67, 6969, false, 1, 20, true);
             App.BusRepo.GetAllBuses().ForEach(bus => { Debug.WriteLine(bus.busId); });
 	    busList = App.BusRepo.GetAllBuses();
         }
 
-	[RelayCommand]
+	    [RelayCommand]
         void GetAllBuses()
         {
             List<Bus> buses = App.BusRepo.GetAllBuses();

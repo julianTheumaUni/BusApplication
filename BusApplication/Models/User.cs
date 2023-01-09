@@ -8,13 +8,21 @@ using SQLite;
 
 namespace BusApplication.Models
 {
-    public class Driver
+    public class User
     {
-        [ForeignKey(nameof(User))]
+        [PrimaryKey, AutoIncrement]
         public int UserId { get; set; }
-        public string MobileNumber { get; set; }
-        public DateTime DaateOfBirth { get; set; }
-        public string Address { get; set; }
+
+        public UserType UserType { get; set; }
+
     }
-    
+
+    public enum UserType
+    {
+        BusUser = 1,
+        BusDriver = 2,
+        DriverManager = 3,
+        UserManager = 4,
+        Admin = 5
+    }
 }
