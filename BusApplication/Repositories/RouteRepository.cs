@@ -40,8 +40,8 @@ namespace BusApplication.Repositories
 
                 conn.Insert(new Route
                 {
-                    routeNum = routeNumber,
-                    routeTown = routeTownName
+//                    routeNum = routeNumber,
+//                    routeTown = routeTownName
                 });
 
                 Debug.WriteLine("Successfully added a new Route");
@@ -70,6 +70,7 @@ namespace BusApplication.Repositories
 
         public Route GetRouteByID(int routeIdIn)
         {
+            /*
             foreach (Route route in App.RouteRepo.GetAllRoutes())
             {
                 if (route.routeNum == routeIdIn)
@@ -79,6 +80,8 @@ namespace BusApplication.Repositories
             }
             Route nullRoute = new Route { routeNum = 0, routeTown = "N/A" };
             return nullRoute;
+            */
+            return new Route { EndLocation = "Bye", StartLocation = "Hello" };
         }
     }
 }

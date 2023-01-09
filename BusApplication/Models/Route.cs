@@ -10,7 +10,8 @@ namespace BusApplication.Models
     public class Route
     {
         [PrimaryKey, AutoIncrement]
-        public int routeNum { get; set; }
-        public string routeTown { get; set; }
+        public int RouteId { get; set; }
+        public string StartLocation { get; set; }
+        public string EndLocation { get; set; }
     }
 }

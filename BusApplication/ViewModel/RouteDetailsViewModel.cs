@@ -28,7 +28,7 @@ namespace BusApplication.ViewModel
         {
             Debug.WriteLine("Adding from View Model");
             App.RouteRepo.AddRoute(21, "Mushroom Kingdom");
-            App.RouteRepo.GetAllRoutes().ForEach(route => { Debug.WriteLine(route.routeNum); });
+            //App.RouteRepo.GetAllRoutes().ForEach(route => { Debug.WriteLine(route.routeNum); });
 	          routeList = App.RouteRepo.GetAllRoutes();
         }
 
@@ -36,7 +36,7 @@ namespace BusApplication.ViewModel
         void GetAllRoutes()
         {
             List<Route> routes = App.RouteRepo.GetAllRoutes();
-            routes.ForEach(route => { Debug.WriteLine(route.routeNum); });
+            //routes.ForEach(route => { Debug.WriteLine(route.routeNum); });
         }
 
 	public List<Route> GetRoutes()
@@ -50,7 +50,7 @@ namespace BusApplication.ViewModel
             List<RouteCollectionView> routeCollection = new List<RouteCollectionView>();
             routes.ForEach(route =>
             {
-                int routeNumber = route.routeNum;
+                int routeNumber = route.RouteId;
                 RouteCollectionViewItems.Add(new RouteCollectionView { routeNum = routeNumber});
             });
         }

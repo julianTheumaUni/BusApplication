@@ -49,7 +49,6 @@ namespace BusApplication.Repositories
                     accessibility = Accessibility,
                     seatsLeft = 5,
                     myRoute = 1,
-                    myDriver = 225
                 };
 
                 //busToAdd.setVariables();
