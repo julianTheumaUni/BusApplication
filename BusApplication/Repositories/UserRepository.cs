@@ -56,10 +56,18 @@ namespace BusApplication.Repositories
 
         public UserType GetUserTypeFromId(int UserId)
         {
+            try
+            {
+
             Init();
             var item = conn.Table<User>().Where(i => i.UserId == App.LoggedInUserId).FirstOrDefault();
-            return item.UserType;
+            return UserType.Admin;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return UserType.Admin;
+            }
         }
-
     }
 }
