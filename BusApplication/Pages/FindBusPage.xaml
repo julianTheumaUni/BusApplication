@@ -26,7 +26,7 @@
                     </Picker>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout>
-                    <Label Text="to" Margin="0,0,10,0" FontSize="22" VerticalOptions="Center" FontAttributes="Bold"/>
+                    <Label Text="to" Margin="0,0,10,0" FontSize="22" VerticalOptions="Center" FontAttributes="Bold" TextColor="#2F329F"/>
                     <Picker Title="Select City" FontSize="22" VerticalOptions="End">
                         <Picker.Items>
                             <x:String>Marsaskala</x:String>

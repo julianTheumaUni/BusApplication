@@ -7,8 +7,9 @@
              x:DataType="viewmodel:DriverManagementViewModel">
     <VerticalStackLayout>
         <Label 
-            Text="Drivers"
-            TextColor="Blue"
+            Text="Welcome, Driver!"
+            Margin="40,30,40,0"
+            TextColor="#2F329F"
             FontSize="40"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />

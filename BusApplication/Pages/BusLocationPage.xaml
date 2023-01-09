@@ -53,7 +53,7 @@
                                         <DataTemplate>
                                             <Frame Padding="6"
                                        Grid.Column="0"
-                                        BackgroundColor="#23538F"
+                                        BackgroundColor="#2F329F"
                                         CornerRadius="70"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center">
