@@ -48,6 +48,17 @@
                 HeightRequest="90"
                 HorizontalOptions="Fill"  
                 />
+
+        <Button Text="ADD USER" 
+                BackgroundColor="#2F329F"
+                TextColor="#FFFFFF"
+                FontSize="25"
+                FontAttributes="Bold"
+                Margin="40,50,40,0"
+                HeightRequest="90"
+                HorizontalOptions="Fill"  
+                Command="{Binding AddBusUserPageCommand}"
+                />
         <!--Command="{Binding NavigateToEditStatus}"-->
         <Button Text="Add User" Command="{Binding AddBusUserPageCommand}"/>
         <Label Text="{Binding InputSelectedUserType}"/>
