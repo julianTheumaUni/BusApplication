@@ -13,7 +13,7 @@ namespace BusApplication.Models
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
         public string MobileNumber { get; set; }
-        public DateTime DaateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string Address { get; set; }
     }
     

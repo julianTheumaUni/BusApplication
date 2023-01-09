@@ -33,6 +33,7 @@ namespace BusApplication.Repositories
 
         public void AddDriver(DateTime dateOfBirth, string address, string phoneNumber, string name)
         {
+            /*
             Debug.WriteLine("Adding Driver...");
             try
             {
@@ -51,6 +52,7 @@ namespace BusApplication.Repositories
             catch {
                 Debug.WriteLine("Error in adding Driver");
             }
+            */
         }
 
         public List<Driver> GetAllDrivers()
@@ -74,13 +76,12 @@ namespace BusApplication.Repositories
         {
             foreach (Driver driver in App.DriverRepo.GetAllDrivers())
             {
-                if (driver.Id == driverIdIn)
+                if (driver.UserId == driverIdIn)
                 {
                     return driver;
                 }
             }
-            Driver nullDriver = new Driver { Id = 0, DateOfBirth = System.DateTime.Now, Name = "N/A", PhoneNumber = "N/A", Address = "N/A", BusNumber = 0 };
-            return nullDriver;
+            return new Driver { Address="", DateOfBirth=DateTime.Now, MobileNumber=""};
         }
     }
 }

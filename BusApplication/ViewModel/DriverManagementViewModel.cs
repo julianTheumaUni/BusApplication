@@ -23,7 +23,7 @@ namespace BusApplication.ViewModel
         {
             Debug.WriteLine("Adding from View Model");
             App.DriverRepo.AddDriver(new DateTime(DateTime.Now.Year), "24, Triq il-Kbira, Mosta", "21212121", "John");
-            App.DriverRepo.GetAllDrivers().ForEach(driver => { Debug.WriteLine(driver.Name); });
+            App.DriverRepo.GetAllDrivers().ForEach(driver => { Debug.WriteLine(driver.UserId); });
         }
 
         /*
@@ -40,7 +40,7 @@ namespace BusApplication.ViewModel
         void GetAllDrivers()
         {
             List<Driver> drivers = App.DriverRepo.GetAllDrivers();
-            drivers.ForEach(driver => { Debug.WriteLine(driver.Name); });
+            //drivers.ForEach(driver => { Debug.WriteLine(driver.Name); });
         }
 
         public List<Driver> GetDrivers()
@@ -54,9 +54,9 @@ namespace BusApplication.ViewModel
             List<DriverCollectionView> driverCollection = new List<DriverCollectionView>();
             drivers.ForEach(driver =>
             {
-                string driverName = driver.Name;
-                int driverBus = driver.BusNumber;
-                DriversCollectionViewItems.Add(new DriverCollectionView { Name = driverName, BusNumber = driverBus });
+                //string driverName = driver.Name;
+                //int driverBus = driver.BusNumber;
+                //DriversCollectionViewItems.Add(new DriverCollectionView { Name = driverName, BusNumber = driverBus });
             });
         }
 
