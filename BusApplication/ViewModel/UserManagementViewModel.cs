@@ -4,11 +4,14 @@ using CommunityToolkit.Mvvm.Input;
 using System;
 using Pages;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace BusApplication.ViewModel;
 
 public partial class UserManagementViewModel : ObservableObject
 {
+    public ObservableCollection<DriverCollectionView> DriversCollectionViewItems { get; set; }
+
     [ObservableProperty]
     public string inputSelectedUserType;
 
