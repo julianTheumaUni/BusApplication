@@ -31,7 +31,7 @@ namespace BusApplication.Repositories
             _dbPathBuses = dbPathBuses;
         }
 
-        public void AddUser(UserType userType )
+        public int AddUser(UserType userType )
         {
             Debug.WriteLine("Adding User...");
             try
@@ -44,12 +44,21 @@ namespace BusApplication.Repositories
                 Debug.WriteLine($"User Id: {userToAdd.UserId}");
                 Debug.WriteLine($"User Type: {userToAdd.UserType}");
                 conn.Insert(userToAdd);
-
                 Debug.WriteLine("Successfully added a new User");
+                
+                return userToAdd.UserId;
             }
             catch (Exception ex){
                 Debug.WriteLine(ex.ToString());
+                return -1;
             }
+        }
+
+        public UserType GetUserTypeFromId(int UserId)
+        {
+            Init();
+            var item = conn.Table<User>().Where(i => i.UserId == App.LoggedInUserId).FirstOrDefault();
+            return item.UserType;
         }
 
     }

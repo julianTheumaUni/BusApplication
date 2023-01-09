@@ -16,11 +16,22 @@
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
                 HorizontalOptions="Center" />
-            
+            <Frame IsVisible="{Binding ShowLoginForm}">
+                <StackLayout>
+                    <Entry BackgroundColor="LightGray" Placeholder="User Id" PlaceholderColor="Gray" Text="{Binding LoginFormUserId}" Keyboard="Numeric"/>
+            <Button Text="Login" Margin="0,10,0,0" Command="{Binding LoginCommand}"/>
+                    <HorizontalStackLayout Margin="0,20,0,0">
+                        <Label Text="Don't have an account?" VerticalOptions="Center"/>
+                        <Button Text="SignUp" Margin="20,0,0,0" />
+                    </HorizontalStackLayout>
+                </StackLayout>
+            </Frame>
+            <StackLayout IsVisible="{Binding ShowManagement}">
             <Button Text="Driver Management" Command="{Binding NavigateToDriverManagementCommand}" Margin="0, 0, 0 ,0"/>
             <Button Text="Find A Bus" Command="{Binding NavigateToFindABusCommand}"/>
             <Button Text="User Management" Command ="{Binding NavigateToUserManagementCommand}"/>
             <Button Text="Bus Fleet Management" Command ="{Binding NavigateToFleetManagementCommand}"/>
+            </StackLayout>
 
         </VerticalStackLayout>
 

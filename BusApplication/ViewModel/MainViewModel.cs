@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using BusApplication.Models;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
@@ -14,17 +15,24 @@ namespace BusApplication.ViewModel
     {
 
         public MainViewModel() {
-
             Items = new ObservableCollection<string>();
+            ShowLoginForm = true;
+            ShowManagement = false;
+            LoginFormUserId = 1;
         }
 
         [ObservableProperty]
         ObservableCollection<string> items;
 
         [ObservableProperty]
-        string text;
+        int loginFormUserId;
 
-        
+        [ObservableProperty]
+        bool showLoginForm;
+
+        [ObservableProperty]
+        bool showManagement;
+
 
         [RelayCommand]
         async Task NavigateToDriverManagement()
@@ -45,6 +53,23 @@ namespace BusApplication.ViewModel
         async Task NavigateToFleetManagement()
         {
             await Shell.Current.GoToAsync(nameof(Pages.FleetManagementPage));
+        }
+        [RelayCommand]
+        void Login()
+        {
+            ShowLoginForm = false;
+            Debug.WriteLine(LoginFormUserId);
+            App.LoggedInUserId = LoginFormUserId;
+
+            UserType loggedInUserType = App.UserRepo.GetUserTypeFromId(LoginFormUserId);
+            if(loggedInUserType == UserType.UserManager || loggedInUserType == UserType.UserManager || loggedInUserType == UserType.Admin)
+            {
+                ShowManagement = true;
+            }
+            else
+            {
+                ShowManagement = false;
+            }
         }
     }
 }

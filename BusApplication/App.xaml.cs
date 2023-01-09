@@ -18,6 +18,7 @@ public partial class App : Application
     public static UserRepository UserRepo { get; private set; }
 	public static RouteRepository RouteRepo { get; private set; }
 	public string Tab1Text { get; set; }
+	public static int LoggedInUserId { get; set; }
 
 	public App(
 			ArrivalsRepository arrivalsRepository, 
