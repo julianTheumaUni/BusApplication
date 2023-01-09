@@ -11,5 +11,6 @@
             Text="Hello"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Button Text="Add User" Command="{Binding AddUserCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

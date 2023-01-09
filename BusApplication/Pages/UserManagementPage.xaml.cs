@@ -4,8 +4,9 @@ namespace Pages;
 
 public partial class UserManagementPage : ContentPage
 {
-    public UserManagementPage()
+    public UserManagementPage(UserManagementViewModel vm)
     {
         InitializeComponent();
+        BindingContext= vm;
     }
 }

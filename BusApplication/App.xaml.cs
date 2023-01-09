@@ -7,12 +7,29 @@ namespace BusApplication;
 
 public partial class App : Application
 {
-	public static DriverRepository DriverRepo { get; private set; }
+	public static ArrivalsRepository ArrivalsRepo { get; private set; }
+	public static BusLogsRepository BusLogsRepo { get; private set; }
 	public static BusRepository BusRepo { get; private set; }
+	public static BusStopRepository BusStopRepo { get; private set; }
+	public static BusStopRoutesRepository BusStopRoutesRepo { get; private set; }
+	public static BusUserRepository BusUserRepo { get; private set; }
+    public static DriverRepository DriverRepo { get; private set; }
+    public static PaymentsRepository PaymentsRepo { get; private set; }
+    public static UserRepository UserRepo { get; private set; }
 	public static RouteRepository RouteRepo { get; private set; }
 	public string Tab1Text { get; set; }
 
-	public App(DriverRepository driverRepository, BusRepository busRepository, RouteRepository routeRepository)
+	public App(
+			ArrivalsRepository arrivalsRepository, 
+			BusLogsRepository busLogsRepository, 
+			BusRepository busRepository, 
+			BusStopRepository busStopRepository, 
+			BusStopRoutesRepository busStopRoutesRepository,
+			BusUserRepository busUserRepository,
+			DriverRepository driverRepository,
+			PaymentsRepository paymentsRepository,
+			UserRepository userRepository,
+			RouteRepository routeRepository)
 	{
 		Tab1Text = "Admin";
 		Routing.RegisterRoute(nameof(DriverManagementPage), typeof(DriverManagementPage));
@@ -29,8 +46,15 @@ public partial class App : Application
         InitializeComponent();
 
 		//MainPage = new AppShell();
-		DriverRepo= driverRepository;
+		ArrivalsRepo = arrivalsRepository;
+		BusLogsRepo = busLogsRepository;
 		BusRepo = busRepository;
+		BusStopRepo = busStopRepository;
+		BusStopRoutesRepo = busStopRoutesRepository;
+		BusUserRepo= busUserRepository;
+		DriverRepo= driverRepository;
+		PaymentsRepo= paymentsRepository;
+		UserRepo= userRepository;
 		RouteRepo = routeRepository;
 	}
 }
