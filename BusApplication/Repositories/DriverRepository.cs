@@ -51,6 +51,8 @@ namespace BusApplication.Repositories
             catch (Exception ex) {
                 Debug.WriteLine(ex.ToString());
             }
+
+
             /*
             Debug.WriteLine("Adding Driver...");
             try
@@ -71,6 +73,12 @@ namespace BusApplication.Repositories
                 Debug.WriteLine("Error in adding Driver");
             }
             */
+        }
+
+        public void DeleteDriver(int UserId)
+        {
+            Init();
+            conn.Delete<Driver>(UserId);
         }
 
         public List<Driver> GetAllDrivers()
